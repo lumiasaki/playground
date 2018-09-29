@@ -30,3 +30,5 @@ A lot of protocols were used throughout the project, of course, because the outd
 TODO:
 - [ ] A well-developed, well-designed modularization framework, driven by a Router
 - [ ] A straightforward, declarative one-way UI data binding framework
+- [ ] High test coverage ratio
+- [ ] Objective-C -> Swift
