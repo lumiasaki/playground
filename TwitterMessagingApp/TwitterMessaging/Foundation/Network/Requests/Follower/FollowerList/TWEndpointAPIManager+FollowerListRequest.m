@@ -12,12 +12,12 @@
 
 @implementation TWEndpointAPIManager (FollowerListRequest)
 
-+ (TWEndpointRequestOperation *)fetchFollowerList:(NSDictionary *)params completion:(void(^)(NSError *, NSDictionary *))completion {
++ (TWEndpointRequestOperation *)fetchFollowerList:(NSDictionary *)params completion:(TWEndpointResponseBlock)completion {
     // sorry for this, I have no valid keys for requesting real data, so just return mocks simply
     
 //    return [self startEndpointRequest:[[TWEndpointFollowerListRequest alloc] initWithParams:params] completion:completion];    
     if (completion) {
-        completion(nil, self.mockFollowersResponse);
+        completion(nil, self.mockFollowersResponse, nil);
     }
     return nil;
 }

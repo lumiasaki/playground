@@ -17,7 +17,7 @@
 
 @implementation TWEndpointAPIManager (DirectMessagesEventsList)
 
-+ (TWEndpointRequestOperation *)pullLatestDirectMessage:(NSDictionary *)params completion:(void(^)(NSError *, NSDictionary *))completion; {
++ (TWEndpointRequestOperation *)pullLatestDirectMessage:(NSDictionary *)params completion:(TWEndpointResponseBlock)completion; {
     if (!completion) {
         return nil;
     }
@@ -47,7 +47,7 @@
                                   @"text" : response.copy,
                                   @"senderId" : request.params[@"senderId"] ?: @"",
                                   @"receiverId" : request.params[@"receiverId"] ?: @""
-                                  });
+                                  }, nil);
             }
         }
     }

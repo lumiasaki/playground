@@ -31,7 +31,7 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
     return self;
 }
 
-- (void)request:(id<TWEndpointAPIRequest>)request completion:(void (^)(NSError *, NSDictionary *))completion {
+- (void)request:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSAssert(request, @"request should never be nil");
     self.request = request;
     
@@ -41,19 +41,19 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
         // replace NSURLSession.sharedSession if needed.
         self.task = [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
             if (error && completion) {
-                completion(error, nil);
+                completion(response, nil, error);
                 return;
             }
             
             if (((NSHTTPURLResponse *)response).statusCode >= 300 && ((NSHTTPURLResponse *)response).statusCode < 200) {
                 if (completion) {
-                    completion([NSError errorWithDomain:@"request error" code:((NSHTTPURLResponse *)response).statusCode userInfo:nil], nil);
+                    completion(response, nil, [NSError errorWithDomain:@"request error" code:((NSHTTPURLResponse *)response).statusCode userInfo:nil]);
                 }
             }
             
             NSDictionary *responseDictionary = [[self.configuration serializer:request.deserializerType] deserializeData:data];
             if (responseDictionary && completion) {
-                completion(nil, responseDictionary);
+                completion(response, responseDictionary, nil);
             }
         }];
         

@@ -107,7 +107,7 @@
                                                     @"dialogueId" : self.viewController.dialogue.dialogueId ?: @"",
                                                     @"senderId" : self.viewController.dialogue.recipient.userId ?: @"",
                                                     @"receiverId" : TWGlobalConfiguration.sharedConfiguration.currentUser.userId ?: @""
-                                                    } completion:^(NSError *error, NSDictionary *response) {
+                                                    } completion:^(NSURLResponse *urlResponse, NSDictionary *response, NSError *error) {
                                                         if (error) {
                                                             return;
                                                         }

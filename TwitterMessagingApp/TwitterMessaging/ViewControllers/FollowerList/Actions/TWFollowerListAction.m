@@ -60,7 +60,7 @@
 #pragma mark - private
 
 - (void)_fetchFollowers {
-    [TWEndpointAPIManager fetchFollowerList:@{@"user_id" : TWGlobalConfiguration.sharedConfiguration.currentUser.userId ?: @""} completion:^(NSError *error, NSDictionary *data) {
+    [TWEndpointAPIManager fetchFollowerList:@{@"user_id" : TWGlobalConfiguration.sharedConfiguration.currentUser.userId ?: @""} completion:^(NSURLResponse *urlResponse, NSDictionary *data, NSError *error) {
         // because of mock data, the response data will be nil, I have to comment them out.
         if (error || !data) {
             return;

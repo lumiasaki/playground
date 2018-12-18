@@ -20,7 +20,7 @@ static NSString *const IS_CANCELLED = @"isCancelled";
 
 @property (nonatomic, strong) id<TWEndpointService> requestService;
 @property (nonatomic, strong, readwrite) id<TWEndpointAPIRequest> request;
-@property (nonatomic, copy) void(^completion)(NSError *, NSDictionary *);
+@property (nonatomic, copy) void(^completion)(NSURLResponse *, NSDictionary *, NSError *);
 
 @end
 
@@ -31,7 +31,7 @@ static NSString *const IS_CANCELLED = @"isCancelled";
 @synthesize finished = _finished;
 @synthesize cancelled = _cancelled;
 
-- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSError *, NSDictionary *))completion {
+- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion {
     NSAssert(request, @"request should never be nil");
     if (self = [super init]) {        
         _requestService = [[TWEndpointServiceImpl alloc] initWithConfiguration:TWNetworkConfiguration.sharedConfiguration];
@@ -64,7 +64,7 @@ static NSString *const IS_CANCELLED = @"isCancelled";
         self.cancelled = NO;
         
         __weak typeof (self) weakSelf = self;
-        [self.requestService request:self.request completion:^(NSError *error, NSDictionary *response) {
+        [self.requestService request:self.request completion:^(NSURLResponse *urlResponse, NSDictionary *responseObj, NSError *error) {
             __strong typeof (weakSelf) strongSelf = weakSelf;
             
             if (strongSelf.isCancelled) {
@@ -72,7 +72,7 @@ static NSString *const IS_CANCELLED = @"isCancelled";
                 return;
             }
             if (strongSelf.completion) {
-                strongSelf.completion(error, response);
+                strongSelf.completion(urlResponse, responseObj, error);
             }
             
             strongSelf.finished = YES;

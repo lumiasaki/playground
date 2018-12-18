@@ -17,7 +17,7 @@
 - (instancetype)initWithConfiguration:(TWNetworkConfiguration *)configuration;  // for injection
 
 // for requesting API endpoint type resources
-- (void)request:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSError *, NSDictionary *))completion;
+- (void)request:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 // cancel a request if needed
 - (void)cancel;

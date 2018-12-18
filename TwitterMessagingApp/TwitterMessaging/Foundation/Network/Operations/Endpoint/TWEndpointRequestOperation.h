@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong, readonly) id<TWEndpointAPIRequest> request;
 
-- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSError *, NSDictionary *))completion;
+- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 #pragma mark - unavailable
 

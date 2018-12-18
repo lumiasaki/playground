@@ -11,7 +11,7 @@
 
 @implementation TWEndpointAPIManager (Oauth2TokenRequest)
 
-+ (TWEndpointRequestOperation *)fetchOauth2Token:(void (^)(NSError *, NSDictionary *))completion {
++ (TWEndpointRequestOperation *)fetchOauth2Token:(TWEndpointResponseBlock)completion {
     return [self startEndpointRequest:[[TWEndpointOauth2TokenRequest alloc] init] completion:completion];
 }
 

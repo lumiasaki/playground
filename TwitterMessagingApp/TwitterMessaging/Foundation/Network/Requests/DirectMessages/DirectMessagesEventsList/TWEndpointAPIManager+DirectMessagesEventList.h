@@ -11,6 +11,6 @@
 @interface TWEndpointAPIManager (DirectMessagesEventsList)
 
 // fake receiving direct message api
-+ (TWEndpointRequestOperation *)pullLatestDirectMessage:(NSDictionary *)params completion:(void(^)(NSError *, NSDictionary *))completion;
++ (TWEndpointRequestOperation *)pullLatestDirectMessage:(NSDictionary *)params completion:(TWEndpointResponseBlock)completion;
 
 @end

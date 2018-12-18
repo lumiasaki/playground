@@ -30,14 +30,14 @@ static NSString *const ACCESS_TOKEN = @"access_token";
 
 - (void)requestAuth:(void(^)(BOOL))completion {
     if (!self.isAuthorized) {
-        [TWEndpointAPIManager fetchOauth2Token:^(NSError *error, NSDictionary *response) {
+        [TWEndpointAPIManager fetchOauth2Token:^(NSURLResponse *urlResponse, NSDictionary *responseObj, NSError *error) {
             if (error && completion) {
                 completion(NO);
                 return;
             }
             
-            if ([response[TOKEN_TYPE] isEqualToString:@"bearer"] && ![TWUtils stringIsEmpty:response[ACCESS_TOKEN]]) {
-                [TWSecureKeychainManager.sharedManager add:(NSString *)response[ACCESS_TOKEN] as:BEARER_TOKEN_SECURE_SAVE_KEY];
+            if ([responseObj[TOKEN_TYPE] isEqualToString:@"bearer"] && ![TWUtils stringIsEmpty:responseObj[ACCESS_TOKEN]]) {
+                [TWSecureKeychainManager.sharedManager add:(NSString *)responseObj[ACCESS_TOKEN] as:BEARER_TOKEN_SECURE_SAVE_KEY];
                 if (completion) {
                     completion(YES);
                 }

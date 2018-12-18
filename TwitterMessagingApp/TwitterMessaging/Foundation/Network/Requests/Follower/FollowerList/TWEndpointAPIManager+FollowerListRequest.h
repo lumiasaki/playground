@@ -10,6 +10,6 @@
 
 @interface TWEndpointAPIManager (FollowerListRequest)
 
-+ (TWEndpointRequestOperation *)fetchFollowerList:(NSDictionary *)params completion:(void(^)(NSError *, NSDictionary *))completion;
++ (TWEndpointRequestOperation *)fetchFollowerList:(NSDictionary *)params completion:(TWEndpointResponseBlock)completion;
 
 @end

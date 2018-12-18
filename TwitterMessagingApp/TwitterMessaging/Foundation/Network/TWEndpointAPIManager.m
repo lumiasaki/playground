@@ -12,7 +12,7 @@
 
 @implementation TWEndpointAPIManager
 
-+ (TWEndpointRequestOperation *)startEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void (^)(NSError *, NSDictionary *))completion {
++ (TWEndpointRequestOperation *)startEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(TWEndpointResponseBlock)completion {
     if (![request conformsToProtocol:@protocol(TWEndpointAPIRequest)]) {
         return nil;
     }
