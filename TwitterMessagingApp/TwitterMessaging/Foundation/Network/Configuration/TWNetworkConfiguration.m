@@ -65,3 +65,11 @@
 }
 
 @end
+
+@implementation TWNetworkConfiguration (TWEndpointAPIRequest)
+
+- (NSDictionary *)defaultHeadersWith:(id<TWEndpointAPIRequest>)request {
+    return @{};
+}
+
+@end

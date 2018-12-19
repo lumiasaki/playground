@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWNetworkDataSerializer.h"
+#import "TWEndpointAPIRequest.h"
 
 __attribute__((objc_subclassing_restricted))
 
@@ -19,5 +20,11 @@ __attribute__((objc_subclassing_restricted))
 + (instancetype)sharedConfiguration;
 
 - (id<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType;
+
+@end
+
+@interface TWNetworkConfiguration (TWEndpointAPIRequest)
+
+- (NSDictionary *)defaultHeadersWith:(id<TWEndpointAPIRequest>)request;
 
 @end

@@ -26,7 +26,7 @@ static NSString *const SECRET_KEY = @"SECRET_KEY";
     return @{@"grant_type" : @"client_credentials"};
 }
 
-- (NSDictionary *)headers {    
+- (NSDictionary *)additionalHeaders {    
     return @{
              @"Authorization" : [NSString stringWithFormat:@"Basic %@", self.bearerTokenCredentialsInBase64],
              @"Content-Type" : @"application/x-www-form-urlencoded;charset=UTF-8"

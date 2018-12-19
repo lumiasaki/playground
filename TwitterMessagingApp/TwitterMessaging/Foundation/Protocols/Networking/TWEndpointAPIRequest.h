@@ -14,8 +14,14 @@
 @property (nonatomic, strong, readonly) NSString *endpoint;
 @property (nonatomic, strong, readonly) NSString *httpMethod;
 @property (nonatomic, strong, readonly) NSDictionary *params;
-@property (nonatomic, strong, readonly) NSDictionary *headers;
+@property (nonatomic, strong, readonly) NSDictionary *additionalHeaders;
 @property (nonatomic, assign, readonly) TWNetworkDataSerializerType serializerType;
 @property (nonatomic, assign, readonly) TWNetworkDataSerializerType deserializerType;
+
+@end
+
+@protocol TMEndpointAPIRequestInjectDefaultHeaders <NSObject>
+
+@property (nonatomic, assign, readonly) BOOL injectDefaultHeaders;
 
 @end

@@ -23,7 +23,7 @@
         return NO;
     }
     
-    if (![request.headers isKindOfClass:NSDictionary.class]) {
+    if (![request.additionalHeaders isKindOfClass:NSDictionary.class]) {
         return NO;
     }
     

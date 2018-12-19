@@ -48,7 +48,7 @@
     return params.copy;
 }
 
-- (NSDictionary *)headers {
+- (NSDictionary *)additionalHeaders {
     return @{@"Content-Type" : @"application/json"};
 }
 

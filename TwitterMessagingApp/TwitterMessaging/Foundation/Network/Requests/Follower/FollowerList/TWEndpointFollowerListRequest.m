@@ -35,7 +35,7 @@
     return _params ?: @{};
 }
 
-- (NSDictionary *)headers {
+- (NSDictionary *)additionalHeaders {
     return @{};
 }
 

@@ -39,7 +39,7 @@
              };
 }
 
-- (NSDictionary *)headers {
+- (NSDictionary *)additionalHeaders {
     return @{@"Content-Type" : @"application/json"};
 }
 
