@@ -20,7 +20,7 @@
 
 @end
 
-@protocol TMEndpointAPIRequestInjectDefaultHeaders <NSObject>
+@protocol TWEndpointAPIRequestInjectDefaultHeaders <NSObject>
 
 @property (nonatomic, assign, readonly) BOOL injectDefaultHeaders;
 
