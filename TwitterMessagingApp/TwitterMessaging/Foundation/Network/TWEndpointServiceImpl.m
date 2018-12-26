@@ -111,11 +111,13 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
         [mutableHeaders addEntriesFromDictionary:[self.configuration defaultHeadersWith:request]];
     }
     
-    mutableUrlRequest.allHTTPHeaderFields = mutableHeaders.copy;
-    
     if ([request.httpMethod caseInsensitiveCompare:@"post"] == NSOrderedSame) {
-        mutableUrlRequest.HTTPBody = [[self.configuration serializer:request.serializerType] serializeDictionary:request.params];
+        NSData *bodyData = [[self.configuration serializer:request.serializerType] serializeDictionary:request.params];
+        mutableHeaders[@"Content-Length"] = [NSString stringWithFormat:@"%lu", (unsigned long)bodyData.length];
+        mutableUrlRequest.HTTPBody = bodyData;
     }
+    
+    mutableUrlRequest.allHTTPHeaderFields = mutableHeaders.copy;
     
     return mutableUrlRequest.copy;
 }
