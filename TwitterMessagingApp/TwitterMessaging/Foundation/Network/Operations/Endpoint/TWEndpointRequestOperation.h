@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "TWEndpointAPIRequest.h"
 
+@class TWNetworkConfiguration;
+@protocol TWEndpointService;
+
 @interface TWEndpointRequestOperation : NSOperation
 
 @property (nonatomic, strong, readonly) id<TWEndpointAPIRequest> request;
 
-- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion;
+- (instancetype)initWithConfiguration:(TWNetworkConfiguration *)configuration endpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion;
 
 #pragma mark - unavailable
 

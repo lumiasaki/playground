@@ -14,10 +14,8 @@ __attribute__((objc_subclassing_restricted))
 
 @interface TWNetworkConfiguration : NSObject
 
-@property (nonatomic, strong, readonly) NSString *baseUrl;
-@property (nonatomic, strong, readonly) NSString *authToken;
-
-+ (instancetype)sharedConfiguration;
+@property (nonatomic, strong) NSString *baseUrl;
+@property (nonatomic, strong) NSString *authToken;
 
 - (Class<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType;
 

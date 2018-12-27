@@ -54,6 +54,7 @@
 		9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DB211A1281002C5745 /* TWUser+Rendering.m */; };
 		9FC066E0211AB7DD002C5745 /* TWImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DF211AB7DD002C5745 /* TWImageLoader.m */; };
 		9FC066E3211AC382002C5745 /* UIImageView+DownLoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */; };
+		CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -174,6 +175,8 @@
 		9FC066DF211AB7DD002C5745 /* TWImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWImageLoader.m; sourceTree = "<group>"; };
 		9FC066E1211AC382002C5745 /* UIImageView+DownLoadImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DownLoadImage.h"; sourceTree = "<group>"; };
 		9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DownLoadImage.m"; sourceTree = "<group>"; };
+		CED5FAED21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWBusinessEndpointRequestManager.h; sourceTree = "<group>"; };
+		CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWBusinessEndpointRequestManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -225,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				0CEA0B2F21170418005F48BF /* TwitterMessaging.entitlements */,
+				CED5FAEC21D4B366006F5839 /* BusinessFoundation */,
 				0C51969C2116067300F16F47 /* ViewControllers */,
 				0C5196662115C3AD00F16F47 /* Model */,
 				0C5196632115B4C700F16F47 /* Foundation */,
@@ -603,6 +607,15 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
+		CED5FAEC21D4B366006F5839 /* BusinessFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				CED5FAED21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.h */,
+				CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */,
+			);
+			path = BusinessFoundation;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -775,6 +788,7 @@
 				9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */,
 				0C5196822115E42A00F16F47 /* TWEndpointAPIManager.m in Sources */,
 				0C5196782115D07500F16F47 /* TWNetworkConfiguration.m in Sources */,
+				CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */,
 				9F588B9E21197ED2004C6BA2 /* TWNetworkDataFormURLEncodedSerializer.m in Sources */,
 				0C5196962115FD5300F16F47 /* TWEndpointAPIManager+Oauth2TokenRequest.m in Sources */,
 				0C51965C2115AF2B00F16F47 /* TWFollowerListViewController.m in Sources */,

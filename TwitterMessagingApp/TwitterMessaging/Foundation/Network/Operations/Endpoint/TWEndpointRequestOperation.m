@@ -31,10 +31,11 @@ static NSString *const IS_CANCELLED = @"isCancelled";
 @synthesize finished = _finished;
 @synthesize cancelled = _cancelled;
 
-- (instancetype)initWithEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+- (instancetype)initWithConfiguration:(TWNetworkConfiguration *)configuration endpointRequest:(id<TWEndpointAPIRequest>)request completion:(void(^)(NSURLResponse *, NSDictionary *, NSError *))completion {
+    NSAssert(configuration, @"configuration should never be nil");
     NSAssert(request, @"request should never be nil");
     if (self = [super init]) {        
-        _requestService = [[TWEndpointServiceImpl alloc] initWithConfiguration:TWNetworkConfiguration.sharedConfiguration];
+        _requestService = [[TWEndpointServiceImpl alloc] initWithConfiguration:configuration];
         _request = request;
         _completion = completion;
         

@@ -8,11 +8,13 @@
 
 #import "TWEndpointAPIManager+Oauth2TokenRequest.h"
 #import "TWEndpointOauth2TokenRequest.h"
+#import "TWBusinessEndpointRequestManager.h"
 
 @implementation TWEndpointAPIManager (Oauth2TokenRequest)
 
 + (TWEndpointRequestOperation *)fetchOauth2Token:(TWEndpointResponseBlock)completion {
-    return [self startEndpointRequest:[[TWEndpointOauth2TokenRequest alloc] init] completion:completion];
+    // not reasonable
+    return [TWBusinessEndpointRequestManager.businessEndpointAPIManager startEndpointRequest:[[TWEndpointOauth2TokenRequest alloc] init] completion:completion];
 }
 
 @end

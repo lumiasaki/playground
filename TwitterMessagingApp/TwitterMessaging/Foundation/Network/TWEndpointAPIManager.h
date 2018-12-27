@@ -8,13 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "TWEndpointAPIRequest.h"
-@class TWEndpointRequestOperation;
+
+@class TWEndpointRequestOperation, TWNetworkConfiguration;
 
 typedef void(^TWEndpointResponseBlock)(NSURLResponse *, NSDictionary *, NSError *);
 
 @interface TWEndpointAPIManager : NSObject
 
+- (instancetype)initWithConfiguration:(TWNetworkConfiguration *)configuration;
+
 // shouldn't invoke this method directly, using methods in category is a better approach.
-+ (TWEndpointRequestOperation *)startEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(TWEndpointResponseBlock)completion;
+- (TWEndpointRequestOperation *)startEndpointRequest:(id<TWEndpointAPIRequest>)request completion:(TWEndpointResponseBlock)completion;
 
 @end
