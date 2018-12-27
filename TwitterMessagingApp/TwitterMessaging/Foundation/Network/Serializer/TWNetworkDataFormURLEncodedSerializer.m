@@ -10,7 +10,7 @@
 
 @implementation TWNetworkDataFormURLEncodedSerializer
 
-- (NSData *)serializeDictionary:(NSDictionary *)dictionary {
++ (NSData *)serializeDictionary:(NSDictionary *)dictionary {
     if (![dictionary isKindOfClass:NSDictionary.class]) {
         return nil;
     }
@@ -26,15 +26,19 @@
         [mutableString appendFormat:@"%@=%@", key, dictionary[key]];
         if (index++ != dictionary.allKeys.count - 1) {
             [mutableString appendString:@"&"];
-        }                
+        }
     }
     
     return [mutableString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
-- (NSDictionary *)deserializeData:(NSData *)data {
++ (NSDictionary *)deserializeData:(NSData *)data {
     NSAssert(NO, @"unimplement");
     return nil;
+}
+
++ (NSString *)contentType {
+    return @"application/x-www-form-urlencoded";
 }
 
 @end

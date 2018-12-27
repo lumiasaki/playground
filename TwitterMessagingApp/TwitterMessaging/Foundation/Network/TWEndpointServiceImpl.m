@@ -112,8 +112,12 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
     }
     
     if ([request.httpMethod caseInsensitiveCompare:@"post"] == NSOrderedSame) {
-        NSData *bodyData = [[self.configuration serializer:request.serializerType] serializeDictionary:request.params];
+        Class<TWNetworkDataSerializer> serializer = [self.configuration serializer:request.serializerType];
+        
+        NSData *bodyData = [serializer serializeDictionary:request.params];
+        mutableHeaders[@"Content-Type"] = [serializer contentType];
         mutableHeaders[@"Content-Length"] = [NSString stringWithFormat:@"%lu", (unsigned long)bodyData.length];
+        
         mutableUrlRequest.HTTPBody = bodyData;
     }
     

@@ -10,7 +10,7 @@
 
 @implementation TWNetworkDataJSONSerializer
 
-- (NSData *)serializeDictionary:(NSDictionary *)dictionary {
++ (NSData *)serializeDictionary:(NSDictionary *)dictionary {
     NSError *error;
     NSData *result = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:&error];
     if (!error) {
@@ -20,15 +20,19 @@
     return nil;
 }
 
-- (NSDictionary *)deserializeData:(NSData *)data {
++ (NSDictionary *)deserializeData:(NSData *)data {
     NSError *error;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments
- error:&error];
+                                                             error:&error];
     if (!error && [result isKindOfClass:NSDictionary.class]) {
         return result;
     }
     
     return nil;
+}
+
++ (NSString *)contentType {
+    return @"application/json";
 }
 
 @end

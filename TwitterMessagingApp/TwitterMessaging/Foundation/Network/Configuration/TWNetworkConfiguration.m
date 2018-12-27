@@ -11,13 +11,6 @@
 #import "TWNetworkDataJSONSerializer.h"
 #import "TWNetworkDataFormURLEncodedSerializer.h"
 
-@interface TWNetworkConfiguration ()
-
-@property (nonatomic, strong) TWNetworkDataJSONSerializer *jsonSerializer;
-@property (nonatomic, strong) TWNetworkDataFormURLEncodedSerializer *formURLEncodedSerializer;
-
-@end
-
 @implementation TWNetworkConfiguration
 
 + (instancetype)sharedConfiguration {
@@ -37,31 +30,15 @@
     return @"https://api.twitter.com/";
 }
 
-- (id<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType {
+- (Class<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType {
     switch (serializerType) {
         case TWNetworkDataSerializerJSONType:
-            return self.jsonSerializer;
+            return TWNetworkDataJSONSerializer.class;
         case TWNetworkDataSerializerFormURLEncodedType:
-            return self.formURLEncodedSerializer;
+            return TWNetworkDataFormURLEncodedSerializer.class;
         default:
-            return self.jsonSerializer;
+            return TWNetworkDataJSONSerializer.class;
     }
-}
-
-#pragma mark - getters
-
-- (TWNetworkDataJSONSerializer *)jsonSerializer {
-    if (!_jsonSerializer) {
-        _jsonSerializer = [[TWNetworkDataJSONSerializer alloc] init];
-    }
-    return _jsonSerializer;
-}
-
-- (TWNetworkDataFormURLEncodedSerializer *)formURLEncodedSerializer {
-    if (!_formURLEncodedSerializer) {
-        _formURLEncodedSerializer = [[TWNetworkDataFormURLEncodedSerializer alloc] init];
-    }
-    return _formURLEncodedSerializer;
 }
 
 @end

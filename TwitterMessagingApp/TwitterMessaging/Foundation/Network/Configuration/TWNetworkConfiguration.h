@@ -19,7 +19,7 @@ __attribute__((objc_subclassing_restricted))
 
 + (instancetype)sharedConfiguration;
 
-- (id<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType;
+- (Class<TWNetworkDataSerializer>)serializer:(TWNetworkDataSerializerType)serializerType;
 
 @end
 

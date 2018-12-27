@@ -15,7 +15,8 @@ typedef NS_ENUM(NSInteger, TWNetworkDataSerializerType) {
 
 @protocol TWNetworkDataSerializer <NSObject>
 
-- (NSData *)serializeDictionary:(NSDictionary *)dictionary;
-- (NSDictionary *)deserializeData:(NSData *)data;
++ (NSData *)serializeDictionary:(NSDictionary *)dictionary;
++ (NSDictionary *)deserializeData:(NSData *)data;
++ (NSString *)contentType;
 
 @end
