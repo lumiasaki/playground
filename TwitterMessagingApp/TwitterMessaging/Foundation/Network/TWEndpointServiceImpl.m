@@ -51,10 +51,14 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
                 }
             }
             
-            NSDictionary *responseDictionary = [[self.configuration serializer:request.deserializerType] deserializeData:data];
-            if (responseDictionary && completion) {
+            NSError *deserializeError;
+            NSDictionary *responseDictionary = [[self.configuration serializer:request.deserializerType] deserializeData:data error:&deserializeError];
+            if (!error && responseDictionary && completion) {
                 completion(response, responseDictionary, nil);
+                return;
             }
+            
+            completion(response, nil, deserializeError);
         }];
         
         [self.task resume];
@@ -114,11 +118,15 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
     if ([request.httpMethod caseInsensitiveCompare:@"post"] == NSOrderedSame) {
         Class<TWNetworkDataSerializer> serializer = [self.configuration serializer:request.serializerType];
         
-        NSData *bodyData = [serializer serializeDictionary:request.params];
-        mutableHeaders[@"Content-Type"] = [serializer contentType];
-        mutableHeaders[@"Content-Length"] = [NSString stringWithFormat:@"%lu", (unsigned long)bodyData.length];
+        NSError *serializeError;
+        NSData *bodyData = [serializer serializeDictionary:request.params  error:&serializeError];
         
-        mutableUrlRequest.HTTPBody = bodyData;
+        if (!serializeError) {
+            mutableHeaders[@"Content-Type"] = [serializer contentType];
+            mutableHeaders[@"Content-Length"] = [NSString stringWithFormat:@"%lu", (unsigned long)bodyData.length];
+            
+            mutableUrlRequest.HTTPBody = bodyData;
+        }
     }
     
     mutableUrlRequest.allHTTPHeaderFields = mutableHeaders.copy;
