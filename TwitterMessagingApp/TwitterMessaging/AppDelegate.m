@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "TWPersistingManager.h"
+#import "TWLogService.h"
+#import "TWLogConsolePrinter.h"
 
 @interface AppDelegate ()
 
@@ -18,6 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    TWLogService *logService = TWLogService.shared;
+    [logService registerObserver:[[TWLogConsolePrinter alloc] init] onLevel:TWLogLevelAll];
+    [logService setUpDone];
+    
+    [logService receivedInformation:({
+        TWLogInformation *object = [[TWLogInformation alloc] init];
+        object.logLevel = TWLogLevelInfo;
+        object.message = @"application finish launch";        
+        object;
+    })];
+    
     return YES;
 }
 
