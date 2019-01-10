@@ -25,6 +25,10 @@ As far as the UI layer is concerned, because in this situation, I only want to u
 
 A lot of protocols were used throughout the project, of course, because the outdated Objective-C doesn't make the most power of Protocol, and I'm sure it would be better if it were Swift :)
 
+### Log Service
+
+The core of Log Service is a class named TWLogService, it handles observers registers and dispatch the specific log information to observers which observed the log level, on the queue of Log Service itself, with concurrent behaviour, obviously, the Log Service guarantee the thread-safe issue. Now the Foundation only provides a Console Printer which cares about all types of log levels ( Debug, Info, Warn, Error, Fatal ), it receive information then print them onto the console. A full function, powerful logger can be implemented under the Log Server mechanism.
+
 ---
 
 TODO:
