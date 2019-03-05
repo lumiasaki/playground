@@ -143,7 +143,20 @@
 
 @end
 
+@interface TWLogInformation ()
+
+@property (nonatomic, assign, readwrite) NSTimeInterval timestamp;
+
+@end
+
 @implementation TWLogInformation
+
+- (instancetype)init {
+    if (self = [super init]) {
+        _timestamp = NSDate.date.timeIntervalSince1970;
+    }
+    return self;
+}
 
 - (instancetype)copyWithZone:(NSZone *)zone {
     TWLogInformation *instance = [[self.class allocWithZone:zone] init];
@@ -151,8 +164,21 @@
     instance.message = self.message;
     instance.logLevel = self.logLevel;
     instance.extraInfo = self.extraInfo;
+    instance.timestamp = self.timestamp;
     
     return instance;
+}
+
+@end
+
+@implementation TWLogInformation (TWLogLevelLiteral)
+
+- (NSString *)logLevelLiteral {
+    return @{@(TWLogLevelInfo) : @"info",
+             @(TWLogLevelDebug) : @"debug",
+             @(TWLogLevelWarn) : @"warn",
+             @(TWLogLevelError) : @"error",
+             @(TWLogLevelFatal) : @"fatal"}[@(self.logLevel)];
 }
 
 @end

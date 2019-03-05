@@ -26,6 +26,13 @@ typedef NS_OPTIONS(NSInteger, TWLogLevel) {
 @property (nonatomic, assign) TWLogLevel logLevel;
 @property (nonatomic, strong) NSString *message;
 @property (nonatomic, strong) NSDictionary *extraInfo;
+@property (nonatomic, assign, readonly) NSTimeInterval timestamp;
+
+@end
+
+@interface TWLogInformation (TWLogLevelLiteral)
+
+- (NSString *)logLevelLiteral;
 
 @end
 

@@ -10,6 +10,7 @@
 #import "TWPersistingManager.h"
 #import "TWLogService.h"
 #import "TWLogConsolePrinter.h"
+#import "TWRemoteLogReporter.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,9 @@
     
     TWLogService *logService = TWLogService.shared;
     [logService registerObserver:[[TWLogConsolePrinter alloc] init] onLevel:TWLogLevelAll];
+    
+    [logService registerObserver:[[TWRemoteLogReporter alloc] init] onLevel:TWLogLevelError | TWLogLevelFatal];
+    
     [logService setUpDone];
     
     [logService receivedInformation:({
