@@ -54,6 +54,9 @@
 		9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DB211A1281002C5745 /* TWUser+Rendering.m */; };
 		9FC066E0211AB7DD002C5745 /* TWImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DF211AB7DD002C5745 /* TWImageLoader.m */; };
 		9FC066E3211AC382002C5745 /* UIImageView+DownLoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */; };
+		CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */; };
+		CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */; };
+		CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */; };
 		CE2C33DD222E449200088924 /* TWRemoteLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33DC222E449200088924 /* TWRemoteLogReporter.m */; };
 		CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E2222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m */; };
 		CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */; };
@@ -181,6 +184,13 @@
 		9FC066DF211AB7DD002C5745 /* TWImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWImageLoader.m; sourceTree = "<group>"; };
 		9FC066E1211AC382002C5745 /* UIImageView+DownLoadImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DownLoadImage.h"; sourceTree = "<group>"; };
 		9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DownLoadImage.m"; sourceTree = "<group>"; };
+		CE1FE109224B183E009A6C56 /* TWEventDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWEventDispatcher.h; sourceTree = "<group>"; };
+		CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWEventDispatcher.m; sourceTree = "<group>"; };
+		CE1FE10D224B191B009A6C56 /* TWUniversalEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWUniversalEvent.h; sourceTree = "<group>"; };
+		CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWUniversalEvent.m; sourceTree = "<group>"; };
+		CE1FE113224B1D6A009A6C56 /* TWEventReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWEventReceiver.h; sourceTree = "<group>"; };
+		CE1FE114224B4550009A6C56 /* _TWInternalEventDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TWInternalEventDispatcher.h; sourceTree = "<group>"; };
+		CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _TWInternalEventDispatcher.m; sourceTree = "<group>"; };
 		CE2C33D9222E445800088924 /* TWRemoteLogPersistenceStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWRemoteLogPersistenceStrategy.h; sourceTree = "<group>"; };
 		CE2C33DB222E449200088924 /* TWRemoteLogReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWRemoteLogReporter.h; sourceTree = "<group>"; };
 		CE2C33DC222E449200088924 /* TWRemoteLogReporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWRemoteLogReporter.m; sourceTree = "<group>"; };
@@ -251,7 +261,6 @@
 				0CEA0B2F21170418005F48BF /* TwitterMessaging.entitlements */,
 				CED5FAEC21D4B366006F5839 /* BusinessFoundation */,
 				0C51969C2116067300F16F47 /* ViewControllers */,
-				0C5196662115C3AD00F16F47 /* Model */,
 				0C5196632115B4C700F16F47 /* Foundation */,
 				0C5196602115B48100F16F47 /* Utils */,
 				0C51962621156CAF00F16F47 /* AppDelegate.h */,
@@ -308,10 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				CE2C33DE222E454E00088924 /* Common */,
-				CEBB856121E5E34F00CAAD7B /* LogService */,
 				0C51969B2116064A00F16F47 /* UI */,
-				0C51969A211605E000F16F47 /* Persisting */,
-				0C5196722115CDAE00F16F47 /* Networking */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -328,6 +334,7 @@
 		0C5196612115B49100F16F47 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				CE1FE106224B150C009A6C56 /* Protocol */,
 				0C5196E22116D05C00F16F47 /* CoreDataHelper */,
 				0C5196C42116BB4B00F16F47 /* TWPersistingManager.h */,
 				0C5196C52116BB4B00F16F47 /* TWPersistingManager.m */,
@@ -340,6 +347,7 @@
 		0C5196622115B4B000F16F47 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CE1FE107224B151C009A6C56 /* Protocol */,
 				9FC066DD211AB7C5002C5745 /* ImageLoader */,
 				0CA6BED62118BEE20012168A /* Serializer */,
 				9F588B8221181E76004C6BA2 /* Configuration */,
@@ -356,6 +364,9 @@
 		0C5196632115B4C700F16F47 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				CE1FE103224B14C5009A6C56 /* MicroService */,
+				CE1FE102224B14B2009A6C56 /* DependencyInjection */,
+				CE1FE101224B142D009A6C56 /* EventDispatcher */,
 				CEBB856021E5E32A00CAAD7B /* LogService */,
 				9F588B8721182D0D004C6BA2 /* Configuration */,
 				0CEA0B31211712B0005F48BF /* Category */,
@@ -390,16 +401,6 @@
 				0CEA0B4621173CE1005F48BF /* TWDialogue.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		0C5196722115CDAE00F16F47 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-				0C5196732115CE0C00F16F47 /* TWEndpointService.h */,
-				0C5196742115CE4900F16F47 /* TWEndpointAPIRequest.h */,
-				9F588B8321181EED004C6BA2 /* TWNetworkDataSerializer.h */,
-			);
-			path = Networking;
 			sourceTree = "<group>";
 		};
 		0C51967C2115D2A400F16F47 /* Requests */ = {
@@ -451,15 +452,6 @@
 				0C5196952115FD5300F16F47 /* TWEndpointAPIManager+Oauth2TokenRequest.m */,
 			);
 			path = Oauth2Token;
-			sourceTree = "<group>";
-		};
-		0C51969A211605E000F16F47 /* Persisting */ = {
-			isa = PBXGroup;
-			children = (
-				0C5196702115C8A700F16F47 /* TWPersisting.h */,
-				0CEA0B3021171247005F48BF /* TWDataConvertible.h */,
-			);
-			path = Persisting;
 			sourceTree = "<group>";
 		};
 		0C51969B2116064A00F16F47 /* UI */ = {
@@ -633,6 +625,78 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
+		CE1FE101224B142D009A6C56 /* EventDispatcher */ = {
+			isa = PBXGroup;
+			children = (
+				CE1FE10C224B18FE009A6C56 /* Model */,
+				CE1FE108224B15A0009A6C56 /* Protocol */,
+				CE1FE109224B183E009A6C56 /* TWEventDispatcher.h */,
+				CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */,
+				CE1FE114224B4550009A6C56 /* _TWInternalEventDispatcher.h */,
+				CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */,
+			);
+			path = EventDispatcher;
+			sourceTree = "<group>";
+		};
+		CE1FE102224B14B2009A6C56 /* DependencyInjection */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DependencyInjection;
+			sourceTree = "<group>";
+		};
+		CE1FE103224B14C5009A6C56 /* MicroService */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MicroService;
+			sourceTree = "<group>";
+		};
+		CE1FE105224B14F5009A6C56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CEBB856221E5E37300CAAD7B /* TWLogLevelObserver.h */,
+				CE2C33D9222E445800088924 /* TWRemoteLogPersistenceStrategy.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE1FE106224B150C009A6C56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0C5196702115C8A700F16F47 /* TWPersisting.h */,
+				0CEA0B3021171247005F48BF /* TWDataConvertible.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE1FE107224B151C009A6C56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0C5196732115CE0C00F16F47 /* TWEndpointService.h */,
+				0C5196742115CE4900F16F47 /* TWEndpointAPIRequest.h */,
+				9F588B8321181EED004C6BA2 /* TWNetworkDataSerializer.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE1FE108224B15A0009A6C56 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE1FE113224B1D6A009A6C56 /* TWEventReceiver.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE1FE10C224B18FE009A6C56 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE1FE10D224B191B009A6C56 /* TWUniversalEvent.h */,
+				CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		CE2C33DA222E447000088924 /* RemoteLogReporter */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,19 +729,11 @@
 		CEBB856021E5E32A00CAAD7B /* LogService */ = {
 			isa = PBXGroup;
 			children = (
+				CE1FE105224B14F5009A6C56 /* Protocol */,
 				CE2C33DA222E447000088924 /* RemoteLogReporter */,
 				CEBB856921E6D31E00CAAD7B /* RoughLogger */,
 				CEBB856621E5F2D700CAAD7B /* TWLogService.h */,
 				CEBB856721E5F2D700CAAD7B /* TWLogService.m */,
-			);
-			path = LogService;
-			sourceTree = "<group>";
-		};
-		CEBB856121E5E34F00CAAD7B /* LogService */ = {
-			isa = PBXGroup;
-			children = (
-				CEBB856221E5E37300CAAD7B /* TWLogLevelObserver.h */,
-				CE2C33D9222E445800088924 /* TWRemoteLogPersistenceStrategy.h */,
 			);
 			path = LogService;
 			sourceTree = "<group>";
@@ -694,6 +750,7 @@
 		CED5FAEC21D4B366006F5839 /* BusinessFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				0C5196662115C3AD00F16F47 /* Model */,
 				CED5FAED21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.h */,
 				CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */,
 			);
@@ -858,9 +915,11 @@
 				0CA6BED92118BEF70012168A /* TWNetworkDataJSONSerializer.m in Sources */,
 				9FC066E3211AC382002C5745 /* UIImageView+DownLoadImage.m in Sources */,
 				0CEA0B2B2116FE68005F48BF /* TWCoreDataStack.m in Sources */,
+				CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */,
 				CE2C33DD222E449200088924 /* TWRemoteLogReporter.m in Sources */,
 				0C51968E2115F31A00F16F47 /* TWEndpointFollowerListRequest.m in Sources */,
 				CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */,
+				CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */,
 				0C5196C62116BB4B00F16F47 /* TWPersistingManager.m in Sources */,
 				0CA6BECC211890A80012168A /* TWTextMessageHostCell.m in Sources */,
 				0CEA0B2E211700F9005F48BF /* TWSecureKeychainManager.m in Sources */,
@@ -884,6 +943,7 @@
 				0C51965C2115AF2B00F16F47 /* TWFollowerListViewController.m in Sources */,
 				0CEA0B3B2117296E005F48BF /* TWMessagingViewController.m in Sources */,
 				0C5196692115C3D400F16F47 /* TWMessage.m in Sources */,
+				CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

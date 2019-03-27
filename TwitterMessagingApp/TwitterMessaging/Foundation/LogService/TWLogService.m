@@ -46,7 +46,7 @@
         return;
     }
     
-    NSDictionary<NSNumber *, NSArray<id<TWLogLevelObserver>> *> * observers = [self observersOnLevelOption:TWLogLevelAll];
+    NSDictionary<NSNumber *, NSArray<id<TWLogLevelObserver>> *> *observers = [self observersOnLevelOption:TWLogLevelAll];
     
     if ([observers isKindOfClass:NSDictionary.class]) {
         [observers enumerateKeysAndObjectsUsingBlock:^(NSNumber * _Nonnull key, NSArray<id<TWLogLevelObserver>> * _Nonnull obj, BOOL * _Nonnull stop) {
