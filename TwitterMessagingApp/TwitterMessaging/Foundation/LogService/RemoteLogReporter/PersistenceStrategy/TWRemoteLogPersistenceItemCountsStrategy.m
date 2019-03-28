@@ -259,7 +259,9 @@ static const NSUInteger DEFAULT_PERSITENCE_IN_DISK_MAX_COUNT = 3;
 - (void)applicationWillEnterBackgroundOrTerminate:(NSNotification *)notification {
     TWExecuteTaskOnWorkQueue(^{
         if (self.pendingRemoteLogInfos.count > 0) {
-            [self writeToFileSync:self.distributeAnAvailableFilePath data:self.pendingRemoteLogInfos];
+            if ([self writeToFileSync:self.distributeAnAvailableFilePath data:self.pendingRemoteLogInfos]) {
+                [self.pendingRemoteLogInfos removeAllObjects];
+            }
         }
     }, NO);
 }

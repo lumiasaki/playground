@@ -51,14 +51,18 @@ static NSTimeInterval const TIMEOUT_INTERVAL = 30.f;
                 }
             }
             
-            NSError *deserializeError;
-            NSDictionary *responseDictionary = [[self.configuration serializer:request.deserializerType] deserializeData:data error:&deserializeError];
-            if (!error && responseDictionary && completion) {
-                completion(response, responseDictionary, nil);
-                return;
+            if (data != nil && data.length != 0) {
+                NSError *deserializeError;
+                id responseJsonObject = [[self.configuration serializer:request.deserializerType] deserializeData:data error:&deserializeError];
+                if (!deserializeError && responseJsonObject && completion) {
+                        completion(response, responseJsonObject, nil);
+                        return;
+                    }
+
+                completion(response, nil, deserializeError);
+            } else {
+                    completion(response, nil, nil);
             }
-            
-            completion(response, nil, deserializeError);
         }];
         
         [self.task resume];

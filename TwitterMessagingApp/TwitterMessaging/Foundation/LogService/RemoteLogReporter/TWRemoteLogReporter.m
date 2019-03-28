@@ -167,7 +167,7 @@ static const NSString *const REMOTE_LOG_ENDPOINT = @"";
 #pragma mark - private
 
 - (void)sendToRemote:(TWRemoteLogParams *)params completion:(void(^)(BOOL success))completion {
-    if ([params isKindOfClass:TWRemoteLogParams.class] || ![params.logs isKindOfClass:NSArray.class] || params.logs.count <= 0) {
+    if (![params isKindOfClass:TWRemoteLogParams.class] || ![params.logs isKindOfClass:NSArray.class] || params.logs.count <= 0) {
         return;
     }
     
@@ -178,7 +178,7 @@ static const NSString *const REMOTE_LOG_ENDPOINT = @"";
     return ^(NSURLResponse *urlResponse, id decodedObject, NSError *error) {
         if (completion) {
             // TODO: add any additional condition
-            completion(error || (((NSHTTPURLResponse *)urlResponse).statusCode < 200 || ((NSHTTPURLResponse *)urlResponse).statusCode >= 300));
+            completion(!error || !(((NSHTTPURLResponse *)urlResponse).statusCode < 200 || ((NSHTTPURLResponse *)urlResponse).statusCode >= 300));
         }
     };
 }
