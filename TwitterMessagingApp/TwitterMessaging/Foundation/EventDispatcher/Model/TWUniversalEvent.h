@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *eventName;
 @property (nonatomic, strong) NSDictionary<NSString *, id> *content;
-@property (nonatomic, assign) NSTimeInterval timestamp;
+@property (nonatomic, assign, readonly) NSTimeInterval timestamp;
 
 @end
 

@@ -61,6 +61,7 @@
 		CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E2222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m */; };
 		CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */; };
 		CE2C33E9222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */; };
+		CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */; };
 		CEBB856821E5F2D700CAAD7B /* TWLogService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856721E5F2D700CAAD7B /* TWLogService.m */; };
 		CEBB856C21E6D33500CAAD7B /* TWLogConsolePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856B21E6D33500CAAD7B /* TWLogConsolePrinter.m */; };
 		CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */; };
@@ -201,6 +202,9 @@
 		CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+TWExtension.m"; sourceTree = "<group>"; };
 		CE2C33E7222E488A00088924 /* TWRemoteLogInfo+TWPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWRemoteLogInfo+TWPrivate.h"; sourceTree = "<group>"; };
 		CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWRemoteLogInfo+TWPrivate.m"; sourceTree = "<group>"; };
+		CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyInstance.h; sourceTree = "<group>"; };
+		CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyContainer.h; sourceTree = "<group>"; };
+		CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDependencyContainer.m; sourceTree = "<group>"; };
 		CEBB856221E5E37300CAAD7B /* TWLogLevelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLogLevelObserver.h; sourceTree = "<group>"; };
 		CEBB856621E5F2D700CAAD7B /* TWLogService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLogService.h; sourceTree = "<group>"; };
 		CEBB856721E5F2D700CAAD7B /* TWLogService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWLogService.m; sourceTree = "<group>"; };
@@ -364,6 +368,7 @@
 		0C5196632115B4C700F16F47 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				CE8EF98E224C5D220004F5E1 /* MicroApplication */,
 				CE1FE103224B14C5009A6C56 /* MicroService */,
 				CE1FE102224B14B2009A6C56 /* DependencyInjection */,
 				CE1FE101224B142D009A6C56 /* EventDispatcher */,
@@ -641,6 +646,9 @@
 		CE1FE102224B14B2009A6C56 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
+				CE8EF98F224C644C0004F5E1 /* Protocol */,
+				CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */,
+				CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -724,6 +732,21 @@
 				CE2C33E2222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m */,
 			);
 			path = PersistenceStrategy;
+			sourceTree = "<group>";
+		};
+		CE8EF98E224C5D220004F5E1 /* MicroApplication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MicroApplication;
+			sourceTree = "<group>";
+		};
+		CE8EF98F224C644C0004F5E1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		CEBB856021E5E32A00CAAD7B /* LogService */ = {
@@ -940,6 +963,7 @@
 				CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */,
 				9F588B9E21197ED2004C6BA2 /* TWNetworkDataFormURLEncodedSerializer.m in Sources */,
 				0C5196962115FD5300F16F47 /* TWEndpointAPIManager+Oauth2TokenRequest.m in Sources */,
+				CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */,
 				0C51965C2115AF2B00F16F47 /* TWFollowerListViewController.m in Sources */,
 				0CEA0B3B2117296E005F48BF /* TWMessagingViewController.m in Sources */,
 				0C5196692115C3D400F16F47 /* TWMessage.m in Sources */,
