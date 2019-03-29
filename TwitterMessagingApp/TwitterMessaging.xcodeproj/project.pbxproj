@@ -62,6 +62,8 @@
 		CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */; };
 		CE2C33E9222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */; };
 		CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */; };
+		CE8EF99B224CB7B20004F5E1 /* TWMicroServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99A224CB7B20004F5E1 /* TWMicroServiceCenter.m */; };
+		CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */; };
 		CEBB856821E5F2D700CAAD7B /* TWLogService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856721E5F2D700CAAD7B /* TWLogService.m */; };
 		CEBB856C21E6D33500CAAD7B /* TWLogConsolePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856B21E6D33500CAAD7B /* TWLogConsolePrinter.m */; };
 		CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */; };
@@ -205,6 +207,13 @@
 		CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyInstance.h; sourceTree = "<group>"; };
 		CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyContainer.h; sourceTree = "<group>"; };
 		CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDependencyContainer.m; sourceTree = "<group>"; };
+		CE8EF997224CB1E70004F5E1 /* TWMicroService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroService.h; sourceTree = "<group>"; };
+		CE8EF998224CB24C0004F5E1 /* TWMicroServiceLifeCycle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroServiceLifeCycle.h; sourceTree = "<group>"; };
+		CE8EF999224CB7B20004F5E1 /* TWMicroServiceCenter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroServiceCenter.h; sourceTree = "<group>"; };
+		CE8EF99A224CB7B20004F5E1 /* TWMicroServiceCenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWMicroServiceCenter.m; sourceTree = "<group>"; };
+		CE8EF99C224CBB890004F5E1 /* TWMicroServiceContext.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroServiceContext.h; sourceTree = "<group>"; };
+		CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWMicroServiceContext.m; sourceTree = "<group>"; };
+		CE8EF9A0224CBCB30004F5E1 /* TWMicroApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroApplication.h; sourceTree = "<group>"; };
 		CEBB856221E5E37300CAAD7B /* TWLogLevelObserver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLogLevelObserver.h; sourceTree = "<group>"; };
 		CEBB856621E5F2D700CAAD7B /* TWLogService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLogService.h; sourceTree = "<group>"; };
 		CEBB856721E5F2D700CAAD7B /* TWLogService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWLogService.m; sourceTree = "<group>"; };
@@ -646,9 +655,9 @@
 		CE1FE102224B14B2009A6C56 /* DependencyInjection */ = {
 			isa = PBXGroup;
 			children = (
-				CE8EF98F224C644C0004F5E1 /* Protocol */,
 				CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */,
 				CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */,
+				CE8EF98F224C644C0004F5E1 /* Protocol */,
 			);
 			path = DependencyInjection;
 			sourceTree = "<group>";
@@ -656,6 +665,10 @@
 		CE1FE103224B14C5009A6C56 /* MicroService */ = {
 			isa = PBXGroup;
 			children = (
+				CE8EF999224CB7B20004F5E1 /* TWMicroServiceCenter.h */,
+				CE8EF99A224CB7B20004F5E1 /* TWMicroServiceCenter.m */,
+				CE8EF9A1224CBF4E0004F5E1 /* Context */,
+				CE8EF996224CB1D10004F5E1 /* Protocol */,
 			);
 			path = MicroService;
 			sourceTree = "<group>";
@@ -737,6 +750,7 @@
 		CE8EF98E224C5D220004F5E1 /* MicroApplication */ = {
 			isa = PBXGroup;
 			children = (
+				CE8EF99F224CBCA10004F5E1 /* Protocol */,
 			);
 			path = MicroApplication;
 			sourceTree = "<group>";
@@ -747,6 +761,32 @@
 				CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE8EF996224CB1D10004F5E1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EF997224CB1E70004F5E1 /* TWMicroService.h */,
+				CE8EF998224CB24C0004F5E1 /* TWMicroServiceLifeCycle.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE8EF99F224CBCA10004F5E1 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EF9A0224CBCB30004F5E1 /* TWMicroApplication.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		CE8EF9A1224CBF4E0004F5E1 /* Context */ = {
+			isa = PBXGroup;
+			children = (
+				CE8EF99C224CBB890004F5E1 /* TWMicroServiceContext.h */,
+				CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */,
+			);
+			path = Context;
 			sourceTree = "<group>";
 		};
 		CEBB856021E5E32A00CAAD7B /* LogService */ = {
@@ -929,6 +969,7 @@
 				0C5196E12116CCE900F16F47 /* TWBaseModel.m in Sources */,
 				0C51966C2115C3DD00F16F47 /* TWUser.m in Sources */,
 				9F588B8A21182D1F004C6BA2 /* TWGlobalConfiguration.m in Sources */,
+				CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */,
 				9F588B9321185658004C6BA2 /* TWEndpointAPIManager+DirectMessagesEventsNew.m in Sources */,
 				9F588B9621185692004C6BA2 /* TWEndpointDirectMessagesEventsNewRequest.m in Sources */,
 				0C51963921156CB200F16F47 /* main.m in Sources */,
@@ -941,6 +982,7 @@
 				CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */,
 				CE2C33DD222E449200088924 /* TWRemoteLogReporter.m in Sources */,
 				0C51968E2115F31A00F16F47 /* TWEndpointFollowerListRequest.m in Sources */,
+				CE8EF99B224CB7B20004F5E1 /* TWMicroServiceCenter.m in Sources */,
 				CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */,
 				CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */,
 				0C5196C62116BB4B00F16F47 /* TWPersistingManager.m in Sources */,
