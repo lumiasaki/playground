@@ -10,20 +10,6 @@
 
 @protocol TWDependencyInstance;
 
-#define DEPENDENCY_INJECTION_PROPERTY(propertyName, _class) \
-- (_class *)propertyName { \
-  if (!_##propertyName) { \
-    _##propertyName = [TWDependencyInjection.shared getInstance:NSStringFromClass(_class.class)]; \
-  } \
-  return _##propertyName; \
-}
-
-#define MARK_AS_DEPENDENCY_INJECTION_ENTITY(key) \
-FOUNDATION_EXPORT void TWRegisterDependency(Class clz, NSString *key); \
-+ (void)load { \
-  TWRegisterDependency(self, key); \
-}
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TWDependencyContainer : NSObject
