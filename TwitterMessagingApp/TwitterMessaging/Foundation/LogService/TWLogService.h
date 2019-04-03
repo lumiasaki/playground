@@ -38,8 +38,6 @@ typedef NS_OPTIONS(NSInteger, TWLogLevel) {
 
 @interface TWLogService : NSObject
 
-+ (instancetype)shared;
-
 - (void)registerObserver:(id<TWLogLevelObserver>)observer onLevel:(TWLogLevel)level;
 - (void)setUpDone;
 

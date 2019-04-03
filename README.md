@@ -31,6 +31,131 @@ The core of Log Service is a class named TWLogService, it handles observers regi
 
 Log Service provide a module named `TWRemoteLogReporter` to collect those logs tagged as `fatal` and `error` ( by registering via using `TWLogService.registerObserver(_ :observer, logLevel: xxx)` ), it would use its internal `TWRemoteLogPersistenceStrategy` implementation to append logs to pending queue in memory first, and persist the logs to disk if the pending queue in memory hits the max count you assign to, then retrieve them from disk when logs in disk reach water line. The `TWRemoteLogPersistenceStrategy` implementation should at least provide two layers of buffer structure, one in memory, and another one in disk for reliability guarantee purpose. `TWRemoteLogReporter` doesn't care about how `TWRemoteLogPersistenceStrategy` implementation implementes the persistence logic, only cares about if it reach water line, when that moment comes, receive those persisted data from `TWRemoteLogPersistenceStrategy` implementation, then send them to your remote log service. The default `TWRemoteLogPersistenceStrategy` implementation in this playground is using item counts as standard, you could implement an implementation with binary standard if you need one.
 
+### Dependency Injection
+
+Introduce a very simple dependency injection module in this section, this simple dependency injection module handles the initialization of dependency instance ( entity ), no matter the instance is singleton or normal one, provides some very useful and convenient macros to developers.
+
+If developer wants to mark a class as dependency instance, which means dependency injection module can handle with its initialization, just make this class conforms to `TWDependencyInstance` protocol, implement the required methods, declare the class as a dependency instance via `MARK_AS_DEPENDENCY_INJECTION_ENTITY` marco, an example likes below:
+
+```objc
+// ClassA.h
+@interface ClassA : NSObject <TWDependencyInstance>
+
+...
+
+@end
+
+// ClassA.m
+
+@implementation ClassA
+
+MARK_AS_DEPENDENCY_INJECTION_ENTITY(ClassA);
+
++ (instancetype)dependencyInstance {
+    return [[self alloc] init]; 
+}
+
++ (TWDependencyInstanceType)dependencyInstanceType {
+    return TWDependencyInstanceNormalType;
+}
+
+...
+
+@end
+
+```
+
+Above codes make a class conforming to `TWDependencyInstance` protocol, and dependency injection module knows how to return this entity now. For users, they can use another macro to get the injected object with a very easy way:
+
+```objc
+// ClassB.m
+
+@interface ClassB ()
+
+@property (nonatomic, strong) ClassA *instance;
+
+@end
+
+@implementation ClassB
+
+
+- (void)someMethod {
+    [self.instance someMethodInClassA]; // self.instance is injected by dependency injection automaticlly
+}
+
+DEPENDENCY_INJECTION_PROPERTY(instance, ClassA);
+
+@end
+
+```
+
+If we want to change the injected class with the same key for some reasons like testing or mocking purpose, we could create a class which inherit from original injected class, or we create a new class which has same interface with original one, then mark the newer one as dependency instance ( entity ) via `MARK_AS_DEPENDENCY_INJECTION_ENTITY` with original key, and comment the `MARK_AS_DEPENDENCY_INJECTION_ENTITY` macro in original class.
+
+### Micro Service
+
+Sometimes we need to initialize some services at the very beginning phrase, those service without user interface, just some univeral services we want to use later, `Log Service` introduced previously is one of the cases. To simplify this kind of requirement, I create this `Micro Service` module to handle with the scenario.
+
+If the class meets the scenario, we can make it to conform with `TWMicroService` protocol, `TWMicroService` protocol contains some required static methods for configuration, and some instance methods for micro service lifecycle, each micro service should at least implement `start` method, this method will be called when the service be created.
+
+The static methods of `TWMicroService` are configuration of the micro service, `serviceKey` is used for micro service finding, we can find a micro service with the correct micro service context. `isolateLevel` is used for isolating, if marked as `global`, it will be referred by the global mirco service context, or if it is marked `microApp`, it will be referred by the `microApp` scope context, every micro app could have its own micro service context, if the micro app wants to have some micro service just in its scope, the micro service should be marked as `microApp` isolate level. `initializeLevel` indicates when the micro service framework initialize the micro service, if it be marked as `lazy`, it will be created when the first time we find this micro service via `[context findService:xxx]`, or if it be marked as `immediately`, it will be created when the main app launch.
+
+An example as follows:
+
+```objc
+// MicroServiceA.h
+
+@interface MicroServiceA : NSObject <TWMicroService>
+
+@end
+
+// MicroServiceA.m
+
+@implementation MicrServiceA
+
++ (NSString *)serviceKey {
+    return NSStringFromClass(self);
+}
+
++ (TWMicroServiceIsolateLevel)isolateLevel {
+    return TWMicroServiceIsolateGlobalLevel;
+}
+
++ (TWMicroServiceInitializeLevel)initializeLevel {
+    return TWMicroServiceInitializeLazyLevel;
+}
+
+#pragma mark - TWMicroServiceLifeCycle
+
+- (void)start {
+    // some service start logic
+    ...
+}
+
+@end
+
+```
+
+### Event Dispatcher
+
+The event dispatcher is used for the event between `TWEventReceiver`s, like we introduced a micro service named `TWLogService` last section, we can get the instance of the micro service and then call the instance method of the micro service, for `TWLogService`, an example if we can to use the log service to log something, the flow may like:
+
+```objc
+
+[[GetGlobalServiceContext() findService:@"TWLogService"] receivedInformation:({
+    TWLogInformation *object = [[TWLogInformation alloc] init];
+    object.logLevel = TWLogLevelInfo;
+    object.message = @"message of the log";
+    object;
+})];
+
+```
+
+Look, we still need to know some details of `TWLogService`, we need to get the reference of micro service `TWLogService`. If we want to just post event to somewhere, and we know somewhere can handle with the event, that will fix this problem.
+
+`TWEventDispatcher` is also a micro service, in its `start` method, we collect all classes which conform to `TWEventReceiver` protocol, then we register them into `TWEventDispatcher`, each `TWEventReceiver` will declare which event name they can handle with, I strongly recommend user can distribute event name in a place, to avoid event name conflict. Then the receiver implements the `receivedEvent:` method to try to handle with the event which fit to the acceptable event name. Now, we can ignore the `TWLogService` details and post event via `TWEventDispatcher`.
+
+`TWEventDispatcher` also has event dispatching pressure balance feature, inside the `TWEventDispatcher`, it contains several internal dispatchers, everytime `TWEventDispatcher` receives a event dispatch request, it will find the lowest pressure internal dispatcher, and the event will forward to that internal dispatcher, every internal dispatcher will use `NSOperationQueue` and `NSOperation` to execute tasks concurrently.
+
 ---
 
 TODO:

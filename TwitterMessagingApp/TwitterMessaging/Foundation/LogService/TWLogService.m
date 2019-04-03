@@ -20,22 +20,21 @@
     dispatch_queue_t _workQueue;
 }
 
-+ (instancetype)shared {
-    static TWLogService *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[TWLogService alloc] init];
-        instance->_workQueue = dispatch_queue_create("com.faketwitter.twtwitterdm.logservice", DISPATCH_QUEUE_CONCURRENT);
+- (instancetype)init {
+    if (self = [super init]) {
+        _workQueue = dispatch_queue_create("com.faketwitter.twtwitterdm.logservice", DISPATCH_QUEUE_CONCURRENT);
         
-        instance.observers = [[NSMutableDictionary alloc] init];
-        instance.observers[@(TWLogLevelDebug)] = [[NSMutableArray alloc] init];
-        instance.observers[@(TWLogLevelInfo)] = [[NSMutableArray alloc] init];
-        instance.observers[@(TWLogLevelWarn)] = [[NSMutableArray alloc] init];
-        instance.observers[@(TWLogLevelError)] = [[NSMutableArray alloc] init];
-        instance.observers[@(TWLogLevelFatal)] = [[NSMutableArray alloc] init];
-    });
-    return instance;
+        _observers = [[NSMutableDictionary alloc] init];
+        _observers[@(TWLogLevelDebug)] = [[NSMutableArray alloc] init];
+        _observers[@(TWLogLevelInfo)] = [[NSMutableArray alloc] init];
+        _observers[@(TWLogLevelWarn)] = [[NSMutableArray alloc] init];
+        _observers[@(TWLogLevelError)] = [[NSMutableArray alloc] init];
+        _observers[@(TWLogLevelFatal)] = [[NSMutableArray alloc] init];
+    }
+    return self;
 }
+
+#pragma mark - public
 
 - (void)registerObserver:(id<TWLogLevelObserver>)observer onLevel:(TWLogLevel)level {
     if (_consumersRegisterLocked) {

@@ -13,8 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TWMicroServiceLifeCycle <NSObject>
 
 @required
-- (void)onCreated;
 - (void)start;
+
+@optional
+- (void)onCreated;
 
 @end
 

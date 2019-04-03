@@ -61,7 +61,9 @@
         return;
     }
     
-    [service onCreated];
+    if ([service respondsToSelector:@selector(onCreated)]) {
+        [service onCreated];
+    }
     
     [service start];
 }

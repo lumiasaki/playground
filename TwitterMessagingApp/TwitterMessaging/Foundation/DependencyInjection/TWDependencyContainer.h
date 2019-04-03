@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface TWDependencyContainer : NSObject
 
 + (instancetype)shared;
-- (id)getInstance:(NSString *)key;
+- (id<TWDependencyInstance>)getInstance:(NSString *)key;
 
 @end
 

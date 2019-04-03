@@ -12,6 +12,7 @@
 #import "TWUtils.h"
 #import "TWMicroApplication.h"
 #import <objc/runtime.h>
+#import "TWMicroService.h"
 
 @interface TWMicroServiceContext (TWMicroServiceCenter)
 
@@ -45,10 +46,6 @@ static NSString *const TW_GLOBAL_SERVICE_CONTEXT_KEY = @"global";
 
 @implementation TWMicroServiceCenter
 
-+ (void)load {
-    (void)[TWMicroServiceCenter shared];
-}
-
 #pragma mark - public
 
 // get a special service context
@@ -57,15 +54,6 @@ TWMicroServiceContext *GetGlobalServiceContext() {
 }
 
 #pragma mark - private
-
-+ (instancetype)shared {
-    static TWMicroServiceCenter *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[TWMicroServiceCenter alloc] init];
-    });
-    return instance;
-}
 
 - (instancetype)init {
     if (self = [super init]) {
@@ -81,7 +69,7 @@ TWMicroServiceContext *GetGlobalServiceContext() {
 
 - (void)setUpServices {
     @synchronized (self.contexts) {
-        NSArray<Class> *allClasses = getAllClasses();
+        NSArray<Class> *allClasses = [TWUtils getAllClasses];
         
         BOOL containsAppIsolate = NO;
         NSArray<Class> *allServices = [self collectServicesWithClasses:allClasses containsMicroAppIsolateLevel:&containsAppIsolate];
@@ -156,31 +144,6 @@ TWMicroServiceContext *GetGlobalServiceContext() {
     return result.copy;
 }
 
-static NSArray<Class> *getAllClasses() {
-    int numClasses;
-    Class *classes = NULL;
-    
-    classes = NULL;
-    numClasses = objc_getClassList(NULL, 0);
-    
-    NSMutableArray<Class> *result = [[NSMutableArray alloc] init];
-    
-    if (numClasses > 0) {
-        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
-        numClasses = objc_getClassList(classes, numClasses);
-        for (int i = 0; i < numClasses; i++) {
-            Class c = classes[i];
-            
-            if ([NSBundle bundleForClass:c] == NSBundle.mainBundle) {
-                [result addObject:c];
-            }
-        }
-        free(classes);
-    }
-    
-    return result.copy;
-}
-
 - (void)registerService:(Class)serviceClass onContext:(TWMicroServiceContext *)context {
     if (![context isKindOfClass:TWMicroServiceContext.class]) {
         return;
@@ -190,7 +153,13 @@ static NSArray<Class> *getAllClasses() {
     
     NSString *serviceKey = [serviceClass performSelector:@selector(serviceKey)];
     
-    TWMicroServiceInitializeLevel initializeLevel = [[serviceClass performSelector:@selector(initializeLevel)] integerValue];
+    TWMicroServiceInitializeLevel initializeLevel;
+    NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[serviceClass methodSignatureForSelector:@selector(initializeLevel)]];
+    invocation.selector = @selector(initializeLevel);
+    invocation.target = serviceClass;
+    [invocation invoke];
+    [invocation getReturnValue:&initializeLevel];
+    
     if (initializeLevel == TWMicroServiceInitializeImmediatelyLevel) {
         id<TWMicroService> service = [[serviceClass alloc] init];
         
@@ -213,19 +182,44 @@ static NSArray<Class> *getAllClasses() {
 }
 
 - (void)runContexts {
-    @synchronized (self.contexts) {
-        for (TWMicroServiceContext *context in self.contexts.allValues) {
-            if (![context isKindOfClass:TWMicroServiceContext.class]) {
-                continue;
+    // run context on next runloop, avoid conflicts with dependency injection
+    dispatch_async(dispatch_get_main_queue(), ^{
+        @synchronized (self.contexts) {
+            for (TWMicroServiceContext *context in self.contexts.allValues) {
+                if (![context isKindOfClass:TWMicroServiceContext.class]) {
+                    continue;
+                }
+                
+                [context firstTimeBootupServices];
             }
-            
-            [context firstTimeBootupServices];
         }
-    }
+    });
 }
 
 static TWMicroServiceContext *GetServiceContext(NSString *key) {
-    return TWMicroServiceCenter.shared.contexts[key];
+    TWMicroServiceCenter *center = [TWDependencyContainer.shared getInstance:@"TWMicroServiceCenter"];
+    return center.contexts[key];
+}
+
+#pragma mark - TWDependencyInstance
+
+MARK_AS_DEPENDENCY_INJECTION_ENTITY(TWMicroServiceCenter)
+
++ (instancetype)dependencyInstance {
+    static TWMicroServiceCenter *instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[TWMicroServiceCenter alloc] init];
+    });
+    return instance;
+}
+
++ (TWDependencyInstanceType)dependencyInstanceType {
+    return TWDependencyInstanceSingletonType;
+}
+
++ (BOOL)dependencyFastInitialized {
+    return YES;
 }
 
 @end

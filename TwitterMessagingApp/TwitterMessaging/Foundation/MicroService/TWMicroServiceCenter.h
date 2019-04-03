@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "TWMicroServiceContext.h"
+#import "TWDependencyInstance.h"
 
 @protocol TWMicroService;
 
@@ -15,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 FOUNDATION_EXPORT TWMicroServiceContext *GetGlobalServiceContext(void);
 
-@interface TWMicroServiceCenter : NSObject
+@interface TWMicroServiceCenter : NSObject <TWDependencyInstance>
 
 @end
 

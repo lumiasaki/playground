@@ -57,6 +57,7 @@
 		CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */; };
 		CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */; };
 		CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */; };
+		CE20C51622535C0D00CDBB21 /* TWLogService+TWMicroService.m in Sources */ = {isa = PBXBuildFile; fileRef = CE20C51522535C0D00CDBB21 /* TWLogService+TWMicroService.m */; };
 		CE2C33DD222E449200088924 /* TWRemoteLogReporter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33DC222E449200088924 /* TWRemoteLogReporter.m */; };
 		CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E2222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m */; };
 		CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */; };
@@ -194,6 +195,8 @@
 		CE1FE113224B1D6A009A6C56 /* TWEventReceiver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWEventReceiver.h; sourceTree = "<group>"; };
 		CE1FE114224B4550009A6C56 /* _TWInternalEventDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = _TWInternalEventDispatcher.h; sourceTree = "<group>"; };
 		CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _TWInternalEventDispatcher.m; sourceTree = "<group>"; };
+		CE20C51422535C0D00CDBB21 /* TWLogService+TWMicroService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWLogService+TWMicroService.h"; sourceTree = "<group>"; };
+		CE20C51522535C0D00CDBB21 /* TWLogService+TWMicroService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWLogService+TWMicroService.m"; sourceTree = "<group>"; };
 		CE2C33D9222E445800088924 /* TWRemoteLogPersistenceStrategy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWRemoteLogPersistenceStrategy.h; sourceTree = "<group>"; };
 		CE2C33DB222E449200088924 /* TWRemoteLogReporter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWRemoteLogReporter.h; sourceTree = "<group>"; };
 		CE2C33DC222E449200088924 /* TWRemoteLogReporter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWRemoteLogReporter.m; sourceTree = "<group>"; };
@@ -718,6 +721,15 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CE20C510225301EE00CDBB21 /* MicroService */ = {
+			isa = PBXGroup;
+			children = (
+				CE20C51422535C0D00CDBB21 /* TWLogService+TWMicroService.h */,
+				CE20C51522535C0D00CDBB21 /* TWLogService+TWMicroService.m */,
+			);
+			path = MicroService;
+			sourceTree = "<group>";
+		};
 		CE2C33DA222E447000088924 /* RemoteLogReporter */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +804,7 @@
 		CEBB856021E5E32A00CAAD7B /* LogService */ = {
 			isa = PBXGroup;
 			children = (
+				CE20C510225301EE00CDBB21 /* MicroService */,
 				CE1FE105224B14F5009A6C56 /* Protocol */,
 				CE2C33DA222E447000088924 /* RemoteLogReporter */,
 				CEBB856921E6D31E00CAAD7B /* RoughLogger */,
@@ -1002,6 +1015,7 @@
 				9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */,
 				0C5196822115E42A00F16F47 /* TWEndpointAPIManager.m in Sources */,
 				0C5196782115D07500F16F47 /* TWNetworkConfiguration.m in Sources */,
+				CE20C51622535C0D00CDBB21 /* TWLogService+TWMicroService.m in Sources */,
 				CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */,
 				9F588B9E21197ED2004C6BA2 /* TWNetworkDataFormURLEncodedSerializer.m in Sources */,
 				0C5196962115FD5300F16F47 /* TWEndpointAPIManager+Oauth2TokenRequest.m in Sources */,

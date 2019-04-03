@@ -26,4 +26,6 @@
 // transfrom a NSString to a NSDate, by formatting string
 + (NSDate *)dateWithString:(NSString *)dateString format:(NSString *)format;
 
++ (NSArray<Class> *)getAllClasses;
+
 @end

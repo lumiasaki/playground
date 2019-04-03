@@ -7,6 +7,7 @@
 //
 
 #import "TWUtils.h"
+#import <objc/runtime.h>
 
 @implementation TWUtils
 
@@ -58,6 +59,31 @@ static NSDateFormatter *ReverseDateFormatter;
         ReverseDateFormatter.dateFormat = format;
         return [ReverseDateFormatter dateFromString:dateString];
     }
+}
+
++ (NSArray<Class> *)getAllClasses {
+    int numClasses;
+    Class *classes = NULL;
+    
+    classes = NULL;
+    numClasses = objc_getClassList(NULL, 0);
+    
+    NSMutableArray<Class> *result = [[NSMutableArray alloc] init];
+    
+    if (numClasses > 0) {
+        classes = (__unsafe_unretained Class *)malloc(sizeof(Class) * numClasses);
+        numClasses = objc_getClassList(classes, numClasses);
+        for (int i = 0; i < numClasses; i++) {
+            Class c = classes[i];
+            
+            if ([NSBundle bundleForClass:c] == NSBundle.mainBundle) {
+                [result addObject:c];
+            }
+        }
+        free(classes);
+    }
+    
+    return result.copy;
 }
 
 @end

@@ -20,13 +20,22 @@
 
 @implementation TWEventDispatcher
 
-+ (instancetype)shared {
-    static TWEventDispatcher *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[TWEventDispatcher alloc] init];
-    });
-    return instance;
+#pragma mark - TWMicroService
+
++ (NSString *)serviceKey {    
+    return NSStringFromClass(self);
+}
+
++ (TWMicroServiceIsolateLevel)isolateLevel {
+    return TWMicroServiceIsolateGlobalLevel;
+}
+
++ (TWMicroServiceInitializeLevel)initializeLevel {
+    return TWMicroServiceInitializeImmediatelyLevel;
+}
+
+- (void)start {
+    // do nothing
 }
 
 #pragma mark - initializer

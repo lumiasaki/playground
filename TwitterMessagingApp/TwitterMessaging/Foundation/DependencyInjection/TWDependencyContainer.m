@@ -57,13 +57,28 @@ void TWRegisterDependency(Class clz, NSString *key) {
     return self;
 }
 
-- (void)registerDependency:(Class<TWDependencyInstance>)clz forKey:(NSString *)key {
+- (void)registerDependency:(Class)clz forKey:(NSString *)key {
     if (![key isKindOfClass:NSString.class]) {
         return;
     }
 
     @synchronized (self.dependencies) {
         [self.dependencies tw_safeSetObject:clz forKey:key];
+    }
+    
+    // for some really special cases, need init at +load phrase
+    SEL fastInitializedSelector = NSSelectorFromString(@"dependencyFastInitialized");
+    if ([clz respondsToSelector:fastInitializedSelector]) {
+        BOOL result;
+        NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[clz methodSignatureForSelector:fastInitializedSelector]];
+        invocation.selector = fastInitializedSelector;
+        invocation.target = clz;
+        [invocation invoke];
+        [invocation getReturnValue:&result];
+        
+        if (result) {
+            (void)[self getInstanceFromClass:clz];
+        }
     }
 }
 

@@ -9,25 +9,14 @@
 #import "AppDelegate.h"
 #import "TWPersistingManager.h"
 #import "TWLogService.h"
-#import "TWLogConsolePrinter.h"
-#import "TWRemoteLogReporter.h"
-
-@interface AppDelegate ()
-
-@end
+#import "TWMicroServiceCenter.h"
 
 @implementation AppDelegate
-
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    TWLogService *logService = TWLogService.shared;
-    [logService registerObserver:[[TWLogConsolePrinter alloc] init] onLevel:TWLogLevelAll];
-    
-    [logService registerObserver:[[TWRemoteLogReporter alloc] init] onLevel:TWLogLevelError | TWLogLevelFatal];
-    
-    [logService setUpDone];
+    TWLogService *logService = (TWLogService *)[GetGlobalServiceContext() findService:NSStringFromClass(TWLogService.class)];
     
     [logService receivedInformation:({
         TWLogInformation *object = [[TWLogInformation alloc] init];

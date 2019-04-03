@@ -9,22 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "TWMicroServiceLifeCycle.h"
 
-@class TWDependencyContainer;
-
-#define DEPENDENCY_INJECTION_PROPERTY(propertyName, _class) \
-- (_class *)propertyName { \
-if (!_##propertyName) { \
-_##propertyName = [TWDependencyContainer.shared getInstance:NSStringFromClass(_class.class)]; \
-} \
-return _##propertyName; \
-}
-
-#define MARK_AS_DEPENDENCY_INJECTION_ENTITY(key) \
-FOUNDATION_EXPORT void TWRegisterDependency(Class clz, NSString *key); \
-+ (void)load { \
-TWRegisterDependency(self, key); \
-}
-
 typedef NS_ENUM(NSInteger, TWMicroServiceInitializeLevel) {
     TWMicroServiceInitializeImmediatelyLevel, // init at start phrase
     TWMicroServiceInitializeLazyLevel // init when first find action
