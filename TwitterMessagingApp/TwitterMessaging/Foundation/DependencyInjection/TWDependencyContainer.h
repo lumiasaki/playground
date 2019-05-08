@@ -12,10 +12,19 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@interface TWDependencyResolver : NSObject
+
+- (id<TWDependencyInstance>)resolve:(NSString *)key;
+
+@end
+
 @interface TWDependencyContainer : NSObject
 
+@property (nonatomic, strong, readonly) TWDependencyResolver *resolver;
+
 + (instancetype)shared;
-- (id<TWDependencyInstance>)getInstance:(NSString *)key;
+
+- (void)registerDependency:(Class)clz forKey:(NSString *)key initializer:(nullable SEL)initializer arguments:(nullable NSArray *)arguments resolve:(id<TWDependencyInstance>(^ __nullable)(TWDependencyResolver *resolver))resolve;
 
 @end
 

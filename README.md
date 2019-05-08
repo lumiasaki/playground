@@ -35,7 +35,7 @@ Log Service provide a module named `TWRemoteLogReporter` to collect those logs t
 
 Introduce a very simple dependency injection module in this section, this simple dependency injection module handles the initialization of dependency instance ( entity ), no matter the instance is singleton or normal one, provides some very useful and convenient macros to developers.
 
-If developer wants to mark a class as dependency instance, which means dependency injection module can handle with its initialization, just make this class conforms to `TWDependencyInstance` protocol, implement the required methods, declare the class as a dependency instance via `MARK_AS_DEPENDENCY_INJECTION_ENTITY` marco, an example likes below:
+If developer wants to mark a class as dependency instance, which means dependency injection module can handle with its initialization, just make this class conforms to `TWDependencyInstance` protocol, implement the required methods, declare the class as a dependency instance via `MARK_AS_DEPENDENCY_INJECTION_ENTITY`, `MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_INITIALIZER` or `MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_RESOVLER` macro, an example likes below:
 
 ```objc
 // ClassA.h
@@ -51,10 +51,6 @@ If developer wants to mark a class as dependency instance, which means dependenc
 
 MARK_AS_DEPENDENCY_INJECTION_ENTITY(ClassA);
 
-+ (instancetype)dependencyInstance {
-    return [[self alloc] init]; 
-}
-
 + (TWDependencyInstanceType)dependencyInstanceType {
     return TWDependencyInstanceNormalType;
 }
@@ -65,7 +61,15 @@ MARK_AS_DEPENDENCY_INJECTION_ENTITY(ClassA);
 
 ```
 
-Above codes make a class conforming to `TWDependencyInstance` protocol, and dependency injection module knows how to return this entity now. For users, they can use another macro to get the injected object with a very easy way:
+Above codes make a class conforming to `TWDependencyInstance` protocol, and dependency injection module knows how to return this entity now. 
+
+The difference between those macros is:
+
+* `MARK_AS_DEPENDENCY_INJECTION_ENTITY` is the simplest macro, it will use the `init` method as the initializer without any arguments, obviously, the initialization progress of the class which use this macro is not rely on any outer dependencies.
+* `MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_INITIALIZER` macro receives an assigned initializer selector, with optional arguments array, the dependency container will use the assigned initializer to create an instance of the class. The class's initialization progress which needs outer dependencies but the dependencies are not created by dependency container, adapt to this case.
+* `MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_RESOVLER` provides much more flexibility, the resolver object is used for getting instance from the dependency container by calling `resolve:` method, if the initialization progress needs outer dependencies which got from dependency container, you should use this macro.
+
+For users, they can use another macro to get the injected object with a very easy way:
 
 ```objc
 // ClassB.m
@@ -89,7 +93,7 @@ DEPENDENCY_INJECTION_PROPERTY(instance, ClassA);
 
 ```
 
-If we want to change the injected class with the same key for some reasons like testing or mocking purpose, we could create a class which inherit from original injected class, or we create a new class which has same interface with original one, then mark the newer one as dependency instance ( entity ) via `MARK_AS_DEPENDENCY_INJECTION_ENTITY` with original key, and comment the `MARK_AS_DEPENDENCY_INJECTION_ENTITY` macro in original class.
+If we want to change the injected class with the same key for some reasons like testing or mocking purpose, we could create a class which inherit from original injected class, or we create a new class which has same interface with original one, then mark the newer one as dependency instance ( entity ) via `MARK_AS_DEPENDENCY_INJECTION_ENTITY` macros set, with original key, and comment the `MARK_AS_DEPENDENCY_INJECTION_ENTITY` macro, restart the project, you could get the advantage of dependency injection.
 
 ### Micro Service
 

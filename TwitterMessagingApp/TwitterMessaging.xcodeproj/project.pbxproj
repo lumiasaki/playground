@@ -207,6 +207,7 @@
 		CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableDictionary+TWExtension.m"; sourceTree = "<group>"; };
 		CE2C33E7222E488A00088924 /* TWRemoteLogInfo+TWPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWRemoteLogInfo+TWPrivate.h"; sourceTree = "<group>"; };
 		CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWRemoteLogInfo+TWPrivate.m"; sourceTree = "<group>"; };
+		CE46517F227E7AED005B5BE9 /* TWMicroApplicationInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroApplicationInterceptor.h; sourceTree = "<group>"; };
 		CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyInstance.h; sourceTree = "<group>"; };
 		CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyContainer.h; sourceTree = "<group>"; };
 		CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDependencyContainer.m; sourceTree = "<group>"; };
@@ -788,6 +789,7 @@
 			isa = PBXGroup;
 			children = (
 				CE8EF9A0224CBCB30004F5E1 /* TWMicroApplication.h */,
+				CE46517F227E7AED005B5BE9 /* TWMicroApplicationInterceptor.h */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";

@@ -197,7 +197,7 @@ TWMicroServiceContext *GetGlobalServiceContext() {
 }
 
 static TWMicroServiceContext *GetServiceContext(NSString *key) {
-    TWMicroServiceCenter *center = [TWDependencyContainer.shared getInstance:@"TWMicroServiceCenter"];
+    TWMicroServiceCenter *center = [TWDependencyContainer.shared.resolver resolve:@"TWMicroServiceCenter"];
     return center.contexts[key];
 }
 
@@ -205,21 +205,14 @@ static TWMicroServiceContext *GetServiceContext(NSString *key) {
 
 MARK_AS_DEPENDENCY_INJECTION_ENTITY(TWMicroServiceCenter)
 
-+ (instancetype)dependencyInstance {
-    static TWMicroServiceCenter *instance;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[TWMicroServiceCenter alloc] init];
-    });
-    return instance;
-}
+//MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_INITIALIZER(TWMicroServiceCenter, @selector(init), nil)
 
-+ (TWDependencyInstanceType)dependencyInstanceType {
+//MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_RESOVLER(TWMicroServiceCenter, ^id<TWDependencyInstance>(TWDependencyResolver *resolver) {
+//    return [[TWMicroServiceCenter alloc] init];
+//});
+
+- (TWDependencyInstanceType)dependencyInstanceType {
     return TWDependencyInstanceSingletonType;
-}
-
-+ (BOOL)dependencyFastInitialized {
-    return YES;
 }
 
 @end

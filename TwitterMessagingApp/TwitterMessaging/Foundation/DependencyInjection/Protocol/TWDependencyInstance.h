@@ -12,15 +12,27 @@
 #define DEPENDENCY_INJECTION_PROPERTY(propertyName, _class) \
 - (_class *)propertyName { \
 if (!_##propertyName) { \
-_##propertyName = [TWDependencyContainer.shared getInstance:NSStringFromClass(_class.class)]; \
+_##propertyName = [TWDependencyContainer.shared.resolver resolve:NSStringFromClass(_class.class)]; \
 } \
 return _##propertyName; \
 }
 
 #define MARK_AS_DEPENDENCY_INJECTION_ENTITY(key) \
-FOUNDATION_EXPORT void TWRegisterDependency(Class clz, NSString *keyOfDependency); \
+FOUNDATION_EXPORT __attribute__((overloadable)) void TWRegisterDependency(Class clz, NSString *keyOfDependency, SEL initializer); \
 + (void)load { \
-TWRegisterDependency(self, [NSString stringWithCString:#key encoding:NSUTF8StringEncoding]); \
+TWRegisterDependency(self, [NSString stringWithCString:#key encoding:NSUTF8StringEncoding], @selector(init)); \
+} \
+
+#define MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_INITIALIZER(key, initializer, arguments) \
+FOUNDATION_EXPORT __attribute__((overloadable)) void TWRegisterDependency(Class clz, NSString *keyOfDependency, SEL initializerOfDependency, NSArray *argumentsOfDependency); \
++ (void)load { \
+TWRegisterDependency(self, [NSString stringWithCString:#key encoding:NSUTF8StringEncoding], initializer, arguments); \
+} \
+
+#define MARK_AS_DEPENDENCY_INJECTION_ENTITY_WITH_RESOVLER(key, resolveBlock) \
+FOUNDATION_EXPORT __attribute__((overloadable)) void TWRegisterDependency(Class clz, NSString *keyOfDependency, id<TWDependencyInstance>(^resolve)(TWDependencyResolver *resolver)); \
++ (void)load { \
+TWRegisterDependency(self, [NSString stringWithCString:#key encoding:NSUTF8StringEncoding], resolveBlock); \
 } \
 
 typedef NS_ENUM(NSInteger, TWDependencyInstanceType) {
@@ -33,8 +45,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol TWDependencyInstance <NSObject>
 
 @required
-+ (instancetype)dependencyInstance;
-+ (TWDependencyInstanceType)dependencyInstanceType;
+- (TWDependencyInstanceType)dependencyInstanceType;
 
 @end
 
