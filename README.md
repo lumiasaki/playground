@@ -169,3 +169,4 @@ TODO:
 - [ ] High test coverage ratio
 - [ ] Objective-C -> Swift
 - [ ] A mock node.js service running on heroku, replace real Twitter API
+- [ ] Rewrite UI with SwiftUI
