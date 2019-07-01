@@ -7,10 +7,10 @@
 //
 
 #import "TWAuthorizationManager.h"
-#import "TWSecureKeychainManager.h"
 #import "NSString+TWExtension.h"
 #import "TWUtils.h"
 #import "TWEndpointAPIManager+Oauth2TokenRequest.h"
+#import "TwitterMessaging-Bridging-Header.h"
 
 static NSString *const BEARER_TOKEN_SECURE_SAVE_KEY = @"bearerToken";
 
@@ -37,7 +37,7 @@ static NSString *const ACCESS_TOKEN = @"access_token";
             }
             
             if ([responseObj[TOKEN_TYPE] isEqualToString:@"bearer"] && ![TWUtils stringIsEmpty:responseObj[ACCESS_TOKEN]]) {
-                [TWSecureKeychainManager.sharedManager add:(NSString *)responseObj[ACCESS_TOKEN] as:BEARER_TOKEN_SECURE_SAVE_KEY];
+//                [TWSecureKeychainManager.sharedManager add:(NSString *)responseObj[ACCESS_TOKEN] as:BEARER_TOKEN_SECURE_SAVE_KEY];                
                 if (completion) {
                     completion(YES);
                 }

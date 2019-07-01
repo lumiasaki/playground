@@ -37,7 +37,6 @@
 		0CA6BED52118B3560012168A /* TWEndpointAPIManager+DirectMessagesEventsList.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6BED42118B3560012168A /* TWEndpointAPIManager+DirectMessagesEventsList.m */; };
 		0CA6BED92118BEF70012168A /* TWNetworkDataJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA6BED82118BEF70012168A /* TWNetworkDataJSONSerializer.m */; };
 		0CEA0B2B2116FE68005F48BF /* TWCoreDataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B2A2116FE68005F48BF /* TWCoreDataStack.m */; };
-		0CEA0B2E211700F9005F48BF /* TWSecureKeychainManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B2D211700F9005F48BF /* TWSecureKeychainManager.m */; };
 		0CEA0B34211712E3005F48BF /* NSString+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B33211712E3005F48BF /* NSString+TWExtension.m */; };
 		0CEA0B3821171D31005F48BF /* TWFollowerListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B3721171D31005F48BF /* TWFollowerListCell.m */; };
 		0CEA0B3B2117296E005F48BF /* TWMessagingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B3A2117296E005F48BF /* TWMessagingViewController.m */; };
@@ -54,6 +53,10 @@
 		9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DB211A1281002C5745 /* TWUser+Rendering.m */; };
 		9FC066E0211AB7DD002C5745 /* TWImageLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066DF211AB7DD002C5745 /* TWImageLoader.m */; };
 		9FC066E3211AC382002C5745 /* UIImageView+DownLoadImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */; };
+		9FDE724922C98F560084F44B /* KeychainAccessible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE724822C98F560084F44B /* KeychainAccessible.swift */; };
+		9FDE724D22C98FB40084F44B /* KeychainEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE724B22C98FB40084F44B /* KeychainEnums.swift */; };
+		9FDE724E22C98FB40084F44B /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE724C22C98FB40084F44B /* KeychainConstants.swift */; };
+		9FDE725122C98FD00084F44B /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE725022C98FD00084F44B /* SecureStore.swift */; };
 		CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */; };
 		CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */; };
 		CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */; };
@@ -151,8 +154,6 @@
 		0CA6BED82118BEF70012168A /* TWNetworkDataJSONSerializer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWNetworkDataJSONSerializer.m; sourceTree = "<group>"; };
 		0CEA0B292116FE68005F48BF /* TWCoreDataStack.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWCoreDataStack.h; sourceTree = "<group>"; };
 		0CEA0B2A2116FE68005F48BF /* TWCoreDataStack.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWCoreDataStack.m; sourceTree = "<group>"; };
-		0CEA0B2C211700F9005F48BF /* TWSecureKeychainManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWSecureKeychainManager.h; sourceTree = "<group>"; };
-		0CEA0B2D211700F9005F48BF /* TWSecureKeychainManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWSecureKeychainManager.m; sourceTree = "<group>"; };
 		0CEA0B2F21170418005F48BF /* TwitterMessaging.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwitterMessaging.entitlements; sourceTree = "<group>"; };
 		0CEA0B3021171247005F48BF /* TWDataConvertible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDataConvertible.h; sourceTree = "<group>"; };
 		0CEA0B32211712E3005F48BF /* NSString+TWExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+TWExtension.h"; sourceTree = "<group>"; };
@@ -188,6 +189,11 @@
 		9FC066DF211AB7DD002C5745 /* TWImageLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWImageLoader.m; sourceTree = "<group>"; };
 		9FC066E1211AC382002C5745 /* UIImageView+DownLoadImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+DownLoadImage.h"; sourceTree = "<group>"; };
 		9FC066E2211AC382002C5745 /* UIImageView+DownLoadImage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+DownLoadImage.m"; sourceTree = "<group>"; };
+		9FDE724722C98F550084F44B /* TwitterMessaging-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TwitterMessaging-Bridging-Header.h"; sourceTree = "<group>"; };
+		9FDE724822C98F560084F44B /* KeychainAccessible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccessible.swift; sourceTree = "<group>"; };
+		9FDE724B22C98FB40084F44B /* KeychainEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainEnums.swift; sourceTree = "<group>"; };
+		9FDE724C22C98FB40084F44B /* KeychainConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainConstants.swift; sourceTree = "<group>"; };
+		9FDE725022C98FD00084F44B /* SecureStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
 		CE1FE109224B183E009A6C56 /* TWEventDispatcher.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWEventDispatcher.h; sourceTree = "<group>"; };
 		CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWEventDispatcher.m; sourceTree = "<group>"; };
 		CE1FE10D224B191B009A6C56 /* TWUniversalEvent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWUniversalEvent.h; sourceTree = "<group>"; };
@@ -288,6 +294,7 @@
 				0C51963721156CB200F16F47 /* Info.plist */,
 				0C51963821156CB200F16F47 /* main.m */,
 				0C51962F21156CAF00F16F47 /* TwitterMessaging.xcdatamodeld */,
+				9FDE724722C98F550084F44B /* TwitterMessaging-Bridging-Header.h */,
 			);
 			path = TwitterMessaging;
 			sourceTree = "<group>";
@@ -351,12 +358,11 @@
 		0C5196612115B49100F16F47 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
+				9FDE724622C98F3A0084F44B /* SecureStore */,
 				CE1FE106224B150C009A6C56 /* Protocol */,
 				0C5196E22116D05C00F16F47 /* CoreDataHelper */,
 				0C5196C42116BB4B00F16F47 /* TWPersistingManager.h */,
 				0C5196C52116BB4B00F16F47 /* TWPersistingManager.m */,
-				0CEA0B2C211700F9005F48BF /* TWSecureKeychainManager.h */,
-				0CEA0B2D211700F9005F48BF /* TWSecureKeychainManager.m */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -643,6 +649,33 @@
 			path = ImageLoader;
 			sourceTree = "<group>";
 		};
+		9FDE724622C98F3A0084F44B /* SecureStore */ = {
+			isa = PBXGroup;
+			children = (
+				9FDE724C22C98FB40084F44B /* KeychainConstants.swift */,
+				9FDE724B22C98FB40084F44B /* KeychainEnums.swift */,
+				9FDE724F22C98FBB0084F44B /* Implementation */,
+				9FDE724A22C98F970084F44B /* Protocol */,
+			);
+			path = SecureStore;
+			sourceTree = "<group>";
+		};
+		9FDE724A22C98F970084F44B /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				9FDE724822C98F560084F44B /* KeychainAccessible.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		9FDE724F22C98FBB0084F44B /* Implementation */ = {
+			isa = PBXGroup;
+			children = (
+				9FDE725022C98FD00084F44B /* SecureStore.swift */,
+			);
+			path = Implementation;
+			sourceTree = "<group>";
+		};
 		CE1FE101224B142D009A6C56 /* EventDispatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +935,7 @@
 				TargetAttributes = {
 					0C51962221156CAF00F16F47 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -977,6 +1011,7 @@
 				9FC066E0211AB7DD002C5745 /* TWImageLoader.m in Sources */,
 				9F588B8121181792004C6BA2 /* TWAuthorizationManager.m in Sources */,
 				0C5196992115FEE600F16F47 /* TWEndpointAPIManager+FollowerListRequest.m in Sources */,
+				9FDE724E22C98FB40084F44B /* KeychainConstants.swift in Sources */,
 				9F588B86211828A3004C6BA2 /* NSArray+TWExtension.m in Sources */,
 				0C51963121156CAF00F16F47 /* TwitterMessaging.xcdatamodeld in Sources */,
 				0C51967B2115D27C00F16F47 /* TWEndpointServiceImpl.m in Sources */,
@@ -1002,7 +1037,6 @@
 				CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */,
 				0C5196C62116BB4B00F16F47 /* TWPersistingManager.m in Sources */,
 				0CA6BECC211890A80012168A /* TWTextMessageHostCell.m in Sources */,
-				0CEA0B2E211700F9005F48BF /* TWSecureKeychainManager.m in Sources */,
 				0C5196932115F95C00F16F47 /* TWEndpointOauth2TokenRequest.m in Sources */,
 				0CEA0B3821171D31005F48BF /* TWFollowerListCell.m in Sources */,
 				0CA6BED22118B3360012168A /* TWEndpointDirectMessagesEventsListRequest.m in Sources */,
@@ -1010,9 +1044,12 @@
 				CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */,
 				CEBB856821E5F2D700CAAD7B /* TWLogService.m in Sources */,
 				0CA6BECF211890BF0012168A /* TWTextRecipientCell.m in Sources */,
+				9FDE724922C98F560084F44B /* KeychainAccessible.swift in Sources */,
 				0CEA0B34211712E3005F48BF /* NSString+TWExtension.m in Sources */,
 				0C51962821156CAF00F16F47 /* AppDelegate.m in Sources */,
+				9FDE725122C98FD00084F44B /* SecureStore.swift in Sources */,
 				0C51967F2115D79600F16F47 /* TWEndpointRequestOperation.m in Sources */,
+				9FDE724D22C98FB40084F44B /* KeychainEnums.swift in Sources */,
 				9F588B9B21187E6C004C6BA2 /* TWMessagingAction.m in Sources */,
 				9FC066DC211A1281002C5745 /* TWUser+Rendering.m in Sources */,
 				0C5196822115E42A00F16F47 /* TWEndpointAPIManager.m in Sources */,
@@ -1194,6 +1231,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TwitterMessaging/TwitterMessaging.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PW2MRU23R;
@@ -1206,6 +1244,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tianren.zhu.TwitterMessaging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitterMessaging/TwitterMessaging-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1214,6 +1255,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TwitterMessaging/TwitterMessaging.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3PW2MRU23R;
@@ -1226,6 +1268,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = tianren.zhu.TwitterMessaging;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TwitterMessaging/TwitterMessaging-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1233,6 +1277,7 @@
 		0C51965621156CB200F16F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitterMessagingTests/Info.plist;
@@ -1251,6 +1296,7 @@
 		0C51965721156CB200F16F47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitterMessagingTests/Info.plist;
@@ -1269,6 +1315,7 @@
 		0C51965921156CB200F16F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitterMessagingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1286,6 +1333,7 @@
 		0C51965A21156CB200F16F47 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = TwitterMessagingUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
