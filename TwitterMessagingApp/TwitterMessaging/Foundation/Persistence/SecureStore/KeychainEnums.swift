@@ -1,9 +1,9 @@
 //
 //  KeychainEnums.swift
-//  ScanMePay
+//  TwitterMessaging
 //
 //  Created by tianren.zhu on 2019/06/25.
-//  Copyright © 2019 JapanFoodie. All rights reserved.
+//  Copyright © 2019 tianren.zhu. All rights reserved.
 //
 
 import Security

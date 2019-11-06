@@ -1,9 +1,9 @@
 //
 //  SecureStore.swift
-//  ScanMePay
+//  TwitterMessaging
 //
 //  Created by tianren.zhu on 2019/06/24.
-//  Copyright © 2019 JapanFoodie. All rights reserved.
+//  Copyright © 2019 tianren.zhu. All rights reserved.
 //
 
 import Security
@@ -19,7 +19,7 @@ private struct KeychainSearchQuery {
         case delete
     }
     
-    let service: String = "com.takemepay.merchantscan.keychain"
+    let service: String = "com.faketwitter.keychain"
     var clz: KeychainSecurityClass
     var attrAccount: String
     var valueData: Data?
@@ -88,7 +88,7 @@ private extension KeychainSearchQuery {
         case workerQueue
     }
     
-    private let workerQueueIdentifier = "com.com.faketwitter.twtwitterdm.keychain.worker"
+    private let workerQueueIdentifier = "com.faketwitter.twtwitterdm.keychain.worker"
     
     private let workerQueue: DispatchQueue
     private let workerQueueKey: DispatchSpecificKey<SecureStoreTaskLabel>
