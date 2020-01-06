@@ -10,7 +10,7 @@
 
 @implementation NSArray (TWExtension)
 
-- (instancetype)tw_map:(_Nonnull id(^)(_Nonnull id))transformer {
+- (instancetype)tw_map:(_Nonnull id(^_Nonnull)(_Nonnull id))transformer {
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
     for (id object in self) {
         [mutableArray addObject:transformer(object)];
@@ -18,7 +18,7 @@
     return mutableArray.copy;
 }
 
-- (instancetype)tw_flatMap:(_Nonnull id(^)(_Nonnull id))transformer {
+- (instancetype)tw_flatMap:(_Nonnull id(^_Nonnull)(_Nonnull id))transformer {
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
     [self enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:NSArray.class]) {
@@ -36,7 +36,7 @@
     return mutableArray.copy;
 }
 
-- (instancetype)tw_filter:(BOOL (^)(id _Nonnull))filter {
+- (instancetype)tw_filter:(BOOL (^_Nonnull)(id _Nonnull))filter {
     NSMutableArray *mutableArray = [[NSMutableArray alloc] init];
     for (id object in self) {
         if (filter(object)) {

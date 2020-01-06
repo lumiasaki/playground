@@ -70,6 +70,10 @@
 		CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */; };
 		CEBB856821E5F2D700CAAD7B /* TWLogService.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856721E5F2D700CAAD7B /* TWLogService.m */; };
 		CEBB856C21E6D33500CAAD7B /* TWLogConsolePrinter.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBB856B21E6D33500CAAD7B /* TWLogConsolePrinter.m */; };
+		CED2127823C3611B0032EBF3 /* Themeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127723C3611B0032EBF3 /* Themeable.swift */; };
+		CED2127A23C3616C0032EBF3 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127923C3616C0032EBF3 /* Theme.swift */; };
+		CED2127D23C363380032EBF3 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127C23C363380032EBF3 /* ThemeManager.swift */; };
+		CED2127F23C3634F0032EBF3 /* ThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127E23C3634F0032EBF3 /* ThemeRepository.swift */; };
 		CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */; };
 /* End PBXBuildFile section */
 
@@ -229,6 +233,10 @@
 		CEBB856721E5F2D700CAAD7B /* TWLogService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWLogService.m; sourceTree = "<group>"; };
 		CEBB856A21E6D33500CAAD7B /* TWLogConsolePrinter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWLogConsolePrinter.h; sourceTree = "<group>"; };
 		CEBB856B21E6D33500CAAD7B /* TWLogConsolePrinter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWLogConsolePrinter.m; sourceTree = "<group>"; };
+		CED2127723C3611B0032EBF3 /* Themeable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Themeable.swift; sourceTree = "<group>"; };
+		CED2127923C3616C0032EBF3 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		CED2127C23C363380032EBF3 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
+		CED2127E23C3634F0032EBF3 /* ThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepository.swift; sourceTree = "<group>"; };
 		CED5FAED21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWBusinessEndpointRequestManager.h; sourceTree = "<group>"; };
 		CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWBusinessEndpointRequestManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -387,6 +395,7 @@
 		0C5196632115B4C700F16F47 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				CED2127623C361010032EBF3 /* Theme */,
 				CE8EF98E224C5D220004F5E1 /* MicroApplication */,
 				CE1FE103224B14C5009A6C56 /* MicroService */,
 				CE1FE102224B14B2009A6C56 /* DependencyInjection */,
@@ -858,6 +867,17 @@
 			path = RoughLogger;
 			sourceTree = "<group>";
 		};
+		CED2127623C361010032EBF3 /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				CED2127923C3616C0032EBF3 /* Theme.swift */,
+				CED2127723C3611B0032EBF3 /* Themeable.swift */,
+				CED2127C23C363380032EBF3 /* ThemeManager.swift */,
+				CED2127E23C3634F0032EBF3 /* ThemeRepository.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
 		CED5FAEC21D4B366006F5839 /* BusinessFoundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -930,7 +950,7 @@
 		0C51961B21156CAF00F16F47 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0930;
+				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = tianren.zhu;
 				TargetAttributes = {
 					0C51962221156CAF00F16F47 = {
@@ -1021,7 +1041,9 @@
 				9F588B8A21182D1F004C6BA2 /* TWGlobalConfiguration.m in Sources */,
 				CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */,
 				9F588B9321185658004C6BA2 /* TWEndpointAPIManager+DirectMessagesEventsNew.m in Sources */,
+				CED2127823C3611B0032EBF3 /* Themeable.swift in Sources */,
 				9F588B9621185692004C6BA2 /* TWEndpointDirectMessagesEventsNewRequest.m in Sources */,
+				CED2127D23C363380032EBF3 /* ThemeManager.swift in Sources */,
 				0C51963921156CB200F16F47 /* main.m in Sources */,
 				0CEA0B4721173CE1005F48BF /* TWDialogue.m in Sources */,
 				CEBB856C21E6D33500CAAD7B /* TWLogConsolePrinter.m in Sources */,
@@ -1036,6 +1058,7 @@
 				CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */,
 				CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */,
 				0C5196C62116BB4B00F16F47 /* TWPersistingManager.m in Sources */,
+				CED2127A23C3616C0032EBF3 /* Theme.swift in Sources */,
 				0CA6BECC211890A80012168A /* TWTextMessageHostCell.m in Sources */,
 				0C5196932115F95C00F16F47 /* TWEndpointOauth2TokenRequest.m in Sources */,
 				0CEA0B3821171D31005F48BF /* TWFollowerListCell.m in Sources */,
@@ -1058,6 +1081,7 @@
 				CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */,
 				9F588B9E21197ED2004C6BA2 /* TWNetworkDataFormURLEncodedSerializer.m in Sources */,
 				0C5196962115FD5300F16F47 /* TWEndpointAPIManager+Oauth2TokenRequest.m in Sources */,
+				CED2127F23C3634F0032EBF3 /* ThemeRepository.swift in Sources */,
 				CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */,
 				0C51965C2115AF2B00F16F47 /* TWFollowerListViewController.m in Sources */,
 				0CEA0B3B2117296E005F48BF /* TWMessagingViewController.m in Sources */,
@@ -1223,6 +1247,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

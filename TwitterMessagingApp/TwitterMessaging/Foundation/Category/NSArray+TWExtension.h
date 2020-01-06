@@ -10,8 +10,8 @@
 
 @interface NSArray (TWExtension)
 
-- (instancetype)tw_map:(_Nonnull id(^)(_Nonnull id))transformer;
-- (instancetype)tw_flatMap:(_Nonnull id(^)(_Nonnull id))transformer;
-- (instancetype)tw_filter:(BOOL(^)(_Nonnull id))filter;
+- (nonnull instancetype)tw_map:(_Nonnull id(^_Nonnull)(_Nonnull id))transformer;
+- (nonnull instancetype)tw_flatMap:(_Nonnull id(^_Nonnull)(_Nonnull id))transformer;
+- (nonnull instancetype)tw_filter:(BOOL(^_Nonnull)(_Nonnull id))filter;
 
 @end
