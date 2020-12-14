@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,7 @@
 		0CEA0B40211731E8005F48BF /* TWTextMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B3F211731E8005F48BF /* TWTextMessage.m */; };
 		0CEA0B442117333A005F48BF /* TWFollowerListAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B432117333A005F48BF /* TWFollowerListAction.m */; };
 		0CEA0B4721173CE1005F48BF /* TWDialogue.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEA0B4621173CE1005F48BF /* TWDialogue.m */; };
+		19B4C57E1D9B316216C37D71 /* Pods_TwitterMessaging_TwitterMessagingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9029FB2790013400BE62C9 /* Pods_TwitterMessaging_TwitterMessagingUITests.framework */; };
 		9F588B8121181792004C6BA2 /* TWAuthorizationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F588B8021181792004C6BA2 /* TWAuthorizationManager.m */; };
 		9F588B86211828A3004C6BA2 /* NSArray+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F588B85211828A3004C6BA2 /* NSArray+TWExtension.m */; };
 		9F588B8A21182D1F004C6BA2 /* TWGlobalConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F588B8921182D1F004C6BA2 /* TWGlobalConfiguration.m */; };
@@ -57,6 +58,7 @@
 		9FDE724D22C98FB40084F44B /* KeychainEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE724B22C98FB40084F44B /* KeychainEnums.swift */; };
 		9FDE724E22C98FB40084F44B /* KeychainConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE724C22C98FB40084F44B /* KeychainConstants.swift */; };
 		9FDE725122C98FD00084F44B /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FDE725022C98FD00084F44B /* SecureStore.swift */; };
+		BEC487E5D2AE9F679FC8A989 /* Pods_TwitterMessaging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8A6C37968B00CC3F481C484 /* Pods_TwitterMessaging.framework */; };
 		CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10A224B183E009A6C56 /* TWEventDispatcher.m */; };
 		CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE10E224B191B009A6C56 /* TWUniversalEvent.m */; };
 		CE1FE116224B4550009A6C56 /* _TWInternalEventDispatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = CE1FE115224B4550009A6C56 /* _TWInternalEventDispatcher.m */; };
@@ -65,6 +67,17 @@
 		CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E2222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m */; };
 		CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E5222E47CC00088924 /* NSMutableDictionary+TWExtension.m */; };
 		CE2C33E9222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */; };
+		CE4DEFDC25872813004E6D66 /* TWSceneBoxConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFAE25872811004E6D66 /* TWSceneBoxConfiguration.m */; };
+		CE4DEFDD25872813004E6D66 /* TWSceneBoxExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFB025872811004E6D66 /* TWSceneBoxExecutor.m */; };
+		CE4DEFDE25872813004E6D66 /* TWSceneBoxUnitTestHelperExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFB425872811004E6D66 /* TWSceneBoxUnitTestHelperExtension.m */; };
+		CE4DEFDF25872813004E6D66 /* TWSceneBoxLoggerExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFB825872811004E6D66 /* TWSceneBoxLoggerExtension.m */; };
+		CE4DEFE025872813004E6D66 /* TWSceneBoxNavigationExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFBD25872811004E6D66 /* TWSceneBoxNavigationExtension.m */; };
+		CE4DEFE125872813004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFC325872812004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.m */; };
+		CE4DEFE225872813004E6D66 /* TWSceneBoxSharedStateExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFCB25872812004E6D66 /* TWSceneBoxSharedStateExtension.m */; };
+		CE4DEFE325872813004E6D66 /* TWSceneBox+TWSceneBoxExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFCD25872812004E6D66 /* TWSceneBox+TWSceneBoxExecutor.m */; };
+		CE4DEFE425872813004E6D66 /* TWBinaryTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFD025872812004E6D66 /* TWBinaryTuple.m */; };
+		CE4DEFE525872813004E6D66 /* TWSceneBoxEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFDA25872813004E6D66 /* TWSceneBoxEventBus.m */; };
+		CE4DEFE625872813004E6D66 /* TWSceneBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFDB25872813004E6D66 /* TWSceneBox.m */; };
 		CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */; };
 		CE8EF99B224CB7B20004F5E1 /* TWMicroServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99A224CB7B20004F5E1 /* TWMicroServiceCenter.m */; };
 		CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */; };
@@ -75,6 +88,7 @@
 		CED2127D23C363380032EBF3 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127C23C363380032EBF3 /* ThemeManager.swift */; };
 		CED2127F23C3634F0032EBF3 /* ThemeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED2127E23C3634F0032EBF3 /* ThemeRepository.swift */; };
 		CED5FAEF21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */; };
+		DC0B2EFB996565B702AC6FF4 /* Pods_TwitterMessagingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB609F9E12D910870B01413E /* Pods_TwitterMessagingTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,6 +186,11 @@
 		0CEA0B432117333A005F48BF /* TWFollowerListAction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWFollowerListAction.m; sourceTree = "<group>"; };
 		0CEA0B4521173CE1005F48BF /* TWDialogue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDialogue.h; sourceTree = "<group>"; };
 		0CEA0B4621173CE1005F48BF /* TWDialogue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDialogue.m; sourceTree = "<group>"; };
+		31B6461AFA9947136A375DEC /* Pods-TwitterMessaging-TwitterMessagingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessaging-TwitterMessagingUITests.release.xcconfig"; path = "Target Support Files/Pods-TwitterMessaging-TwitterMessagingUITests/Pods-TwitterMessaging-TwitterMessagingUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5AF5F22590677F443AF1191D /* Pods-TwitterMessaging.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessaging.debug.xcconfig"; path = "Target Support Files/Pods-TwitterMessaging/Pods-TwitterMessaging.debug.xcconfig"; sourceTree = "<group>"; };
+		6B9029FB2790013400BE62C9 /* Pods_TwitterMessaging_TwitterMessagingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterMessaging_TwitterMessagingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A12983B23A965C28F86C4BD /* Pods-TwitterMessagingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessagingTests.release.xcconfig"; path = "Target Support Files/Pods-TwitterMessagingTests/Pods-TwitterMessagingTests.release.xcconfig"; sourceTree = "<group>"; };
+		9B2E1C9F63746D87B7895742 /* Pods-TwitterMessagingTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessagingTests.debug.xcconfig"; path = "Target Support Files/Pods-TwitterMessagingTests/Pods-TwitterMessagingTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9F588B7F21181792004C6BA2 /* TWAuthorizationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWAuthorizationManager.h; sourceTree = "<group>"; };
 		9F588B8021181792004C6BA2 /* TWAuthorizationManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWAuthorizationManager.m; sourceTree = "<group>"; };
 		9F588B8321181EED004C6BA2 /* TWNetworkDataSerializer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWNetworkDataSerializer.h; sourceTree = "<group>"; };
@@ -218,6 +237,40 @@
 		CE2C33E7222E488A00088924 /* TWRemoteLogInfo+TWPrivate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TWRemoteLogInfo+TWPrivate.h"; sourceTree = "<group>"; };
 		CE2C33E8222E488A00088924 /* TWRemoteLogInfo+TWPrivate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "TWRemoteLogInfo+TWPrivate.m"; sourceTree = "<group>"; };
 		CE46517F227E7AED005B5BE9 /* TWMicroApplicationInterceptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWMicroApplicationInterceptor.h; sourceTree = "<group>"; };
+		CE4DEFAD25872811004E6D66 /* TWSceneBoxExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExecutor.h; sourceTree = "<group>"; };
+		CE4DEFAE25872811004E6D66 /* TWSceneBoxConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxConfiguration.m; sourceTree = "<group>"; };
+		CE4DEFAF25872811004E6D66 /* TWSceneBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBox.h; sourceTree = "<group>"; };
+		CE4DEFB025872811004E6D66 /* TWSceneBoxExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxExecutor.m; sourceTree = "<group>"; };
+		CE4DEFB325872811004E6D66 /* TWSceneBoxUnitTestHelperExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxUnitTestHelperExtension.h; sourceTree = "<group>"; };
+		CE4DEFB425872811004E6D66 /* TWSceneBoxUnitTestHelperExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxUnitTestHelperExtension.m; sourceTree = "<group>"; };
+		CE4DEFB525872811004E6D66 /* TWSceneBoxExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExtension.h; sourceTree = "<group>"; };
+		CE4DEFB725872811004E6D66 /* TWSceneBoxLoggerExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxLoggerExtension.h; sourceTree = "<group>"; };
+		CE4DEFB825872811004E6D66 /* TWSceneBoxLoggerExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxLoggerExtension.m; sourceTree = "<group>"; };
+		CE4DEFB925872811004E6D66 /* TWSceneBoxCoreExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxCoreExtensions.h; sourceTree = "<group>"; };
+		CE4DEFBB25872811004E6D66 /* TWSceneBoxNavigationExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxNavigationExtension.h; sourceTree = "<group>"; };
+		CE4DEFBC25872811004E6D66 /* TWSceneBoxNavigationExtensionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxNavigationExtensionConstants.h; sourceTree = "<group>"; };
+		CE4DEFBD25872811004E6D66 /* TWSceneBoxNavigationExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxNavigationExtension.m; sourceTree = "<group>"; };
+		CE4DEFBF25872811004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExtensionDefaultAbilityManager.h; sourceTree = "<group>"; };
+		CE4DEFC125872812004E6D66 /* TWSceneBoxManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxManipulation.h; sourceTree = "<group>"; };
+		CE4DEFC225872812004E6D66 /* TWSceneBoxSceneManipulation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxSceneManipulation.h; sourceTree = "<group>"; };
+		CE4DEFC325872812004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxExtensionDefaultAbilityManager.m; sourceTree = "<group>"; };
+		CE4DEFC425872812004E6D66 /* TWSceneBoxExtensionAbilityManagement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExtensionAbilityManagement.h; sourceTree = "<group>"; };
+		CE4DEFC825872812004E6D66 /* TWSceneBoxExtensionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExtensionConstants.h; sourceTree = "<group>"; };
+		CE4DEFCA25872812004E6D66 /* TWSceneBoxSharedStateExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxSharedStateExtension.h; sourceTree = "<group>"; };
+		CE4DEFCB25872812004E6D66 /* TWSceneBoxSharedStateExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxSharedStateExtension.m; sourceTree = "<group>"; };
+		CE4DEFCC25872812004E6D66 /* TWSceneBoxSharedStateExtensionConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxSharedStateExtensionConstants.h; sourceTree = "<group>"; };
+		CE4DEFCD25872812004E6D66 /* TWSceneBox+TWSceneBoxExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TWSceneBox+TWSceneBoxExecutor.m"; sourceTree = "<group>"; };
+		CE4DEFCE25872812004E6D66 /* TWSceneBoxConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxConfiguration.h; sourceTree = "<group>"; };
+		CE4DEFD025872812004E6D66 /* TWBinaryTuple.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWBinaryTuple.m; sourceTree = "<group>"; };
+		CE4DEFD125872812004E6D66 /* TWBinaryTuple.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWBinaryTuple.h; sourceTree = "<group>"; };
+		CE4DEFD225872812004E6D66 /* TWSceneBoxScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxScene.h; sourceTree = "<group>"; };
+		CE4DEFD325872812004E6D66 /* TWSceneBox+TWSceneBoxExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TWSceneBox+TWSceneBoxExecutor.h"; sourceTree = "<group>"; };
+		CE4DEFD525872812004E6D66 /* TWSceneBoxExtensionLifeCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxExtensionLifeCycle.h; sourceTree = "<group>"; };
+		CE4DEFD625872812004E6D66 /* TWSceneBoxSceneLifeCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxSceneLifeCycle.h; sourceTree = "<group>"; };
+		CE4DEFD725872812004E6D66 /* TWSceneBoxLifeCycle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxLifeCycle.h; sourceTree = "<group>"; };
+		CE4DEFD925872813004E6D66 /* TWSceneBoxEventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxEventBus.h; sourceTree = "<group>"; };
+		CE4DEFDA25872813004E6D66 /* TWSceneBoxEventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxEventBus.m; sourceTree = "<group>"; };
+		CE4DEFDB25872813004E6D66 /* TWSceneBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBox.m; sourceTree = "<group>"; };
 		CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyInstance.h; sourceTree = "<group>"; };
 		CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyContainer.h; sourceTree = "<group>"; };
 		CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDependencyContainer.m; sourceTree = "<group>"; };
@@ -239,6 +292,10 @@
 		CED2127E23C3634F0032EBF3 /* ThemeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeRepository.swift; sourceTree = "<group>"; };
 		CED5FAED21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWBusinessEndpointRequestManager.h; sourceTree = "<group>"; };
 		CED5FAEE21D4B3A2006F5839 /* TWBusinessEndpointRequestManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWBusinessEndpointRequestManager.m; sourceTree = "<group>"; };
+		D8A6C37968B00CC3F481C484 /* Pods_TwitterMessaging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterMessaging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB609F9E12D910870B01413E /* Pods_TwitterMessagingTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterMessagingTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E064B22E4AC45F6886D19493 /* Pods-TwitterMessaging-TwitterMessagingUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessaging-TwitterMessagingUITests.debug.xcconfig"; path = "Target Support Files/Pods-TwitterMessaging-TwitterMessagingUITests/Pods-TwitterMessaging-TwitterMessagingUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		E9FE1EB64476C75B9D623B0B /* Pods-TwitterMessaging.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterMessaging.release.xcconfig"; path = "Target Support Files/Pods-TwitterMessaging/Pods-TwitterMessaging.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -246,6 +303,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC487E5D2AE9F679FC8A989 /* Pods_TwitterMessaging.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +311,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC0B2EFB996565B702AC6FF4 /* Pods_TwitterMessagingTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -260,6 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				19B4C57E1D9B316216C37D71 /* Pods_TwitterMessaging_TwitterMessagingUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +333,8 @@
 				0C51964121156CB200F16F47 /* TwitterMessagingTests */,
 				0C51964C21156CB200F16F47 /* TwitterMessagingUITests */,
 				0C51962421156CAF00F16F47 /* Products */,
+				DE12FF3D371687B66FF05D5C /* Pods */,
+				C7CF654DFBFF1EC2D10081B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -395,6 +457,7 @@
 		0C5196632115B4C700F16F47 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				CE4DEFAC258727FE004E6D66 /* SceneBox */,
 				CED2127623C361010032EBF3 /* Theme */,
 				CE8EF98E224C5D220004F5E1 /* MicroApplication */,
 				CE1FE103224B14C5009A6C56 /* MicroService */,
@@ -685,6 +748,16 @@
 			path = Implementation;
 			sourceTree = "<group>";
 		};
+		C7CF654DFBFF1EC2D10081B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8A6C37968B00CC3F481C484 /* Pods_TwitterMessaging.framework */,
+				6B9029FB2790013400BE62C9 /* Pods_TwitterMessaging_TwitterMessagingUITests.framework */,
+				DB609F9E12D910870B01413E /* Pods_TwitterMessagingTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		CE1FE101224B142D009A6C56 /* EventDispatcher */ = {
 			isa = PBXGroup;
 			children = (
@@ -802,6 +875,127 @@
 			path = PersistenceStrategy;
 			sourceTree = "<group>";
 		};
+		CE4DEFAC258727FE004E6D66 /* SceneBox */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFD225872812004E6D66 /* TWSceneBoxScene.h */,
+				CE4DEFAF25872811004E6D66 /* TWSceneBox.h */,
+				CE4DEFDB25872813004E6D66 /* TWSceneBox.m */,
+				CE4DEFD325872812004E6D66 /* TWSceneBox+TWSceneBoxExecutor.h */,
+				CE4DEFCD25872812004E6D66 /* TWSceneBox+TWSceneBoxExecutor.m */,
+				CE4DEFCE25872812004E6D66 /* TWSceneBoxConfiguration.h */,
+				CE4DEFAE25872811004E6D66 /* TWSceneBoxConfiguration.m */,
+				CE4DEFAD25872811004E6D66 /* TWSceneBoxExecutor.h */,
+				CE4DEFB025872811004E6D66 /* TWSceneBoxExecutor.m */,
+				CE4DEFD825872813004E6D66 /* EventBus */,
+				CE4DEFB125872811004E6D66 /* Extensions */,
+				CE4DEFD425872812004E6D66 /* LifeCycle */,
+				CE4DEFCF25872812004E6D66 /* Utils */,
+			);
+			path = SceneBox;
+			sourceTree = "<group>";
+		};
+		CE4DEFB125872811004E6D66 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFB525872811004E6D66 /* TWSceneBoxExtension.h */,
+				CE4DEFB925872811004E6D66 /* TWSceneBoxCoreExtensions.h */,
+				CE4DEFC825872812004E6D66 /* TWSceneBoxExtensionConstants.h */,
+				CE4DEFB225872811004E6D66 /* UnitTest */,
+				CE4DEFB625872811004E6D66 /* Logger */,
+				CE4DEFBA25872811004E6D66 /* Navigation */,
+				CE4DEFBE25872811004E6D66 /* ExtensionAbility */,
+				CE4DEFC925872812004E6D66 /* SharedState */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CE4DEFB225872811004E6D66 /* UnitTest */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFB325872811004E6D66 /* TWSceneBoxUnitTestHelperExtension.h */,
+				CE4DEFB425872811004E6D66 /* TWSceneBoxUnitTestHelperExtension.m */,
+			);
+			path = UnitTest;
+			sourceTree = "<group>";
+		};
+		CE4DEFB625872811004E6D66 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFB725872811004E6D66 /* TWSceneBoxLoggerExtension.h */,
+				CE4DEFB825872811004E6D66 /* TWSceneBoxLoggerExtension.m */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		CE4DEFBA25872811004E6D66 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFBB25872811004E6D66 /* TWSceneBoxNavigationExtension.h */,
+				CE4DEFBC25872811004E6D66 /* TWSceneBoxNavigationExtensionConstants.h */,
+				CE4DEFBD25872811004E6D66 /* TWSceneBoxNavigationExtension.m */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		CE4DEFBE25872811004E6D66 /* ExtensionAbility */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFC425872812004E6D66 /* TWSceneBoxExtensionAbilityManagement.h */,
+				CE4DEFBF25872811004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.h */,
+				CE4DEFC325872812004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.m */,
+				CE4DEFC025872811004E6D66 /* AbilitySet */,
+			);
+			path = ExtensionAbility;
+			sourceTree = "<group>";
+		};
+		CE4DEFC025872811004E6D66 /* AbilitySet */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFC125872812004E6D66 /* TWSceneBoxManipulation.h */,
+				CE4DEFC225872812004E6D66 /* TWSceneBoxSceneManipulation.h */,
+			);
+			path = AbilitySet;
+			sourceTree = "<group>";
+		};
+		CE4DEFC925872812004E6D66 /* SharedState */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFCA25872812004E6D66 /* TWSceneBoxSharedStateExtension.h */,
+				CE4DEFCB25872812004E6D66 /* TWSceneBoxSharedStateExtension.m */,
+				CE4DEFCC25872812004E6D66 /* TWSceneBoxSharedStateExtensionConstants.h */,
+			);
+			path = SharedState;
+			sourceTree = "<group>";
+		};
+		CE4DEFCF25872812004E6D66 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFD025872812004E6D66 /* TWBinaryTuple.m */,
+				CE4DEFD125872812004E6D66 /* TWBinaryTuple.h */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		CE4DEFD425872812004E6D66 /* LifeCycle */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFD525872812004E6D66 /* TWSceneBoxExtensionLifeCycle.h */,
+				CE4DEFD625872812004E6D66 /* TWSceneBoxSceneLifeCycle.h */,
+				CE4DEFD725872812004E6D66 /* TWSceneBoxLifeCycle.h */,
+			);
+			path = LifeCycle;
+			sourceTree = "<group>";
+		};
+		CE4DEFD825872813004E6D66 /* EventBus */ = {
+			isa = PBXGroup;
+			children = (
+				CE4DEFD925872813004E6D66 /* TWSceneBoxEventBus.h */,
+				CE4DEFDA25872813004E6D66 /* TWSceneBoxEventBus.m */,
+			);
+			path = EventBus;
+			sourceTree = "<group>";
+		};
 		CE8EF98E224C5D220004F5E1 /* MicroApplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -888,6 +1082,19 @@
 			path = BusinessFoundation;
 			sourceTree = "<group>";
 		};
+		DE12FF3D371687B66FF05D5C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5AF5F22590677F443AF1191D /* Pods-TwitterMessaging.debug.xcconfig */,
+				E9FE1EB64476C75B9D623B0B /* Pods-TwitterMessaging.release.xcconfig */,
+				E064B22E4AC45F6886D19493 /* Pods-TwitterMessaging-TwitterMessagingUITests.debug.xcconfig */,
+				31B6461AFA9947136A375DEC /* Pods-TwitterMessaging-TwitterMessagingUITests.release.xcconfig */,
+				9B2E1C9F63746D87B7895742 /* Pods-TwitterMessagingTests.debug.xcconfig */,
+				7A12983B23A965C28F86C4BD /* Pods-TwitterMessagingTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -895,9 +1102,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C51965221156CB200F16F47 /* Build configuration list for PBXNativeTarget "TwitterMessaging" */;
 			buildPhases = (
+				B162EE5A72A7F900C85E3338 /* [CP] Check Pods Manifest.lock */,
 				0C51961F21156CAF00F16F47 /* Sources */,
 				0C51962021156CAF00F16F47 /* Frameworks */,
 				0C51962121156CAF00F16F47 /* Resources */,
+				E1783819650A68E00F625238 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -912,6 +1121,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C51965521156CB200F16F47 /* Build configuration list for PBXNativeTarget "TwitterMessagingTests" */;
 			buildPhases = (
+				C4F579E10D1BDD559E132122 /* [CP] Check Pods Manifest.lock */,
 				0C51963A21156CB200F16F47 /* Sources */,
 				0C51963B21156CB200F16F47 /* Frameworks */,
 				0C51963C21156CB200F16F47 /* Resources */,
@@ -930,9 +1140,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0C51965821156CB200F16F47 /* Build configuration list for PBXNativeTarget "TwitterMessagingUITests" */;
 			buildPhases = (
+				DC06BE83A0F23A03E0F0C761 /* [CP] Check Pods Manifest.lock */,
 				0C51964521156CB200F16F47 /* Sources */,
 				0C51964621156CB200F16F47 /* Frameworks */,
 				0C51964721156CB200F16F47 /* Resources */,
+				6D17148C6EBE0BBAB5A476C2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1019,6 +1231,109 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D17148C6EBE0BBAB5A476C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging-TwitterMessagingUITests/Pods-TwitterMessaging-TwitterMessagingUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging-TwitterMessagingUITests/Pods-TwitterMessaging-TwitterMessagingUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging-TwitterMessagingUITests/Pods-TwitterMessaging-TwitterMessagingUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B162EE5A72A7F900C85E3338 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwitterMessaging-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4F579E10D1BDD559E132122 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwitterMessagingTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC06BE83A0F23A03E0F0C761 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TwitterMessaging-TwitterMessagingUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E1783819650A68E00F625238 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging/Pods-TwitterMessaging-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging/Pods-TwitterMessaging-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-TwitterMessaging/Pods-TwitterMessaging-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0C51961F21156CAF00F16F47 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -1039,8 +1354,10 @@
 				0C5196E12116CCE900F16F47 /* TWBaseModel.m in Sources */,
 				0C51966C2115C3DD00F16F47 /* TWUser.m in Sources */,
 				9F588B8A21182D1F004C6BA2 /* TWGlobalConfiguration.m in Sources */,
+				CE4DEFE425872813004E6D66 /* TWBinaryTuple.m in Sources */,
 				CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */,
 				9F588B9321185658004C6BA2 /* TWEndpointAPIManager+DirectMessagesEventsNew.m in Sources */,
+				CE4DEFDC25872813004E6D66 /* TWSceneBoxConfiguration.m in Sources */,
 				CED2127823C3611B0032EBF3 /* Themeable.swift in Sources */,
 				9F588B9621185692004C6BA2 /* TWEndpointDirectMessagesEventsNewRequest.m in Sources */,
 				CED2127D23C363380032EBF3 /* ThemeManager.swift in Sources */,
@@ -1056,21 +1373,29 @@
 				0C51968E2115F31A00F16F47 /* TWEndpointFollowerListRequest.m in Sources */,
 				CE8EF99B224CB7B20004F5E1 /* TWMicroServiceCenter.m in Sources */,
 				CE2C33E3222E474000088924 /* TWRemoteLogPersistenceItemCountsStrategy.m in Sources */,
+				CE4DEFE525872813004E6D66 /* TWSceneBoxEventBus.m in Sources */,
 				CE1FE10B224B183E009A6C56 /* TWEventDispatcher.m in Sources */,
+				CE4DEFDF25872813004E6D66 /* TWSceneBoxLoggerExtension.m in Sources */,
 				0C5196C62116BB4B00F16F47 /* TWPersistingManager.m in Sources */,
 				CED2127A23C3616C0032EBF3 /* Theme.swift in Sources */,
 				0CA6BECC211890A80012168A /* TWTextMessageHostCell.m in Sources */,
+				CE4DEFDD25872813004E6D66 /* TWSceneBoxExecutor.m in Sources */,
+				CE4DEFDE25872813004E6D66 /* TWSceneBoxUnitTestHelperExtension.m in Sources */,
 				0C5196932115F95C00F16F47 /* TWEndpointOauth2TokenRequest.m in Sources */,
 				0CEA0B3821171D31005F48BF /* TWFollowerListCell.m in Sources */,
 				0CA6BED22118B3360012168A /* TWEndpointDirectMessagesEventsListRequest.m in Sources */,
 				0C5196862115E7A200F16F47 /* TWNetworkingOperationManager.m in Sources */,
 				CE2C33E6222E47CC00088924 /* NSMutableDictionary+TWExtension.m in Sources */,
+				CE4DEFE225872813004E6D66 /* TWSceneBoxSharedStateExtension.m in Sources */,
+				CE4DEFE625872813004E6D66 /* TWSceneBox.m in Sources */,
 				CEBB856821E5F2D700CAAD7B /* TWLogService.m in Sources */,
 				0CA6BECF211890BF0012168A /* TWTextRecipientCell.m in Sources */,
+				CE4DEFE125872813004E6D66 /* TWSceneBoxExtensionDefaultAbilityManager.m in Sources */,
 				9FDE724922C98F560084F44B /* KeychainAccessible.swift in Sources */,
 				0CEA0B34211712E3005F48BF /* NSString+TWExtension.m in Sources */,
 				0C51962821156CAF00F16F47 /* AppDelegate.m in Sources */,
 				9FDE725122C98FD00084F44B /* SecureStore.swift in Sources */,
+				CE4DEFE325872813004E6D66 /* TWSceneBox+TWSceneBoxExecutor.m in Sources */,
 				0C51967F2115D79600F16F47 /* TWEndpointRequestOperation.m in Sources */,
 				9FDE724D22C98FB40084F44B /* KeychainEnums.swift in Sources */,
 				9F588B9B21187E6C004C6BA2 /* TWMessagingAction.m in Sources */,
@@ -1084,6 +1409,7 @@
 				CED2127F23C3634F0032EBF3 /* ThemeRepository.swift in Sources */,
 				CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */,
 				0C51965C2115AF2B00F16F47 /* TWFollowerListViewController.m in Sources */,
+				CE4DEFE025872813004E6D66 /* TWSceneBoxNavigationExtension.m in Sources */,
 				0CEA0B3B2117296E005F48BF /* TWMessagingViewController.m in Sources */,
 				0C5196692115C3D400F16F47 /* TWMessage.m in Sources */,
 				CE1FE10F224B191B009A6C56 /* TWUniversalEvent.m in Sources */,
@@ -1254,6 +1580,7 @@
 		};
 		0C51965321156CB200F16F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5AF5F22590677F443AF1191D /* Pods-TwitterMessaging.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1278,6 +1605,7 @@
 		};
 		0C51965421156CB200F16F47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9FE1EB64476C75B9D623B0B /* Pods-TwitterMessaging.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1301,6 +1629,7 @@
 		};
 		0C51965621156CB200F16F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B2E1C9F63746D87B7895742 /* Pods-TwitterMessagingTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1320,6 +1649,7 @@
 		};
 		0C51965721156CB200F16F47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A12983B23A965C28F86C4BD /* Pods-TwitterMessagingTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1339,6 +1669,7 @@
 		};
 		0C51965921156CB200F16F47 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E064B22E4AC45F6886D19493 /* Pods-TwitterMessaging-TwitterMessagingUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1357,6 +1688,7 @@
 		};
 		0C51965A21156CB200F16F47 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 31B6461AFA9947136A375DEC /* Pods-TwitterMessaging-TwitterMessagingUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
