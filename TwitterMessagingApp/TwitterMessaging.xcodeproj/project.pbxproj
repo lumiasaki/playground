@@ -78,6 +78,8 @@
 		CE4DEFE425872813004E6D66 /* TWBinaryTuple.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFD025872812004E6D66 /* TWBinaryTuple.m */; };
 		CE4DEFE525872813004E6D66 /* TWSceneBoxEventBus.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFDA25872813004E6D66 /* TWSceneBoxEventBus.m */; };
 		CE4DEFE625872813004E6D66 /* TWSceneBox.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4DEFDB25872813004E6D66 /* TWSceneBox.m */; };
+		CE8A3C57258A171B00D6C214 /* TWSceneBoxTestSceneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A3C53258A171B00D6C214 /* TWSceneBoxTestSceneViewController.m */; };
+		CE8A3C58258A171B00D6C214 /* TWSceneBoxTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8A3C56258A171B00D6C214 /* TWSceneBoxTests.m */; };
 		CE8EF993224C675F0004F5E1 /* TWDependencyContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */; };
 		CE8EF99B224CB7B20004F5E1 /* TWMicroServiceCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99A224CB7B20004F5E1 /* TWMicroServiceCenter.m */; };
 		CE8EF99E224CBB890004F5E1 /* TWMicroServiceContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8EF99D224CBB890004F5E1 /* TWMicroServiceContext.m */; };
@@ -271,6 +273,10 @@
 		CE4DEFD925872813004E6D66 /* TWSceneBoxEventBus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxEventBus.h; sourceTree = "<group>"; };
 		CE4DEFDA25872813004E6D66 /* TWSceneBoxEventBus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxEventBus.m; sourceTree = "<group>"; };
 		CE4DEFDB25872813004E6D66 /* TWSceneBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBox.m; sourceTree = "<group>"; };
+		CE8A3C53258A171B00D6C214 /* TWSceneBoxTestSceneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxTestSceneViewController.m; sourceTree = "<group>"; };
+		CE8A3C54258A171B00D6C214 /* TWSceneBoxTestSceneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxTestSceneViewController.h; sourceTree = "<group>"; };
+		CE8A3C55258A171B00D6C214 /* TWSceneBoxTestSceneStateTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TWSceneBoxTestSceneStateTable.h; sourceTree = "<group>"; };
+		CE8A3C56258A171B00D6C214 /* TWSceneBoxTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TWSceneBoxTests.m; sourceTree = "<group>"; };
 		CE8EF990224C64790004F5E1 /* TWDependencyInstance.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyInstance.h; sourceTree = "<group>"; };
 		CE8EF991224C675F0004F5E1 /* TWDependencyContainer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TWDependencyContainer.h; sourceTree = "<group>"; };
 		CE8EF992224C675F0004F5E1 /* TWDependencyContainer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TWDependencyContainer.m; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 		0C51964121156CB200F16F47 /* TwitterMessagingTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE8A3C51258A171B00D6C214 /* SceneBox */,
 				0C51964221156CB200F16F47 /* TwitterMessagingTests.m */,
 				0C51964421156CB200F16F47 /* Info.plist */,
 			);
@@ -996,6 +1003,25 @@
 			path = EventBus;
 			sourceTree = "<group>";
 		};
+		CE8A3C51258A171B00D6C214 /* SceneBox */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A3C52258A171B00D6C214 /* Support */,
+				CE8A3C56258A171B00D6C214 /* TWSceneBoxTests.m */,
+			);
+			path = SceneBox;
+			sourceTree = "<group>";
+		};
+		CE8A3C52258A171B00D6C214 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				CE8A3C53258A171B00D6C214 /* TWSceneBoxTestSceneViewController.m */,
+				CE8A3C54258A171B00D6C214 /* TWSceneBoxTestSceneViewController.h */,
+				CE8A3C55258A171B00D6C214 /* TWSceneBoxTestSceneStateTable.h */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		CE8EF98E224C5D220004F5E1 /* MicroApplication */ = {
 			isa = PBXGroup;
 			children = (
@@ -1420,7 +1446,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE8A3C57258A171B00D6C214 /* TWSceneBoxTestSceneViewController.m in Sources */,
 				0C51964321156CB200F16F47 /* TwitterMessagingTests.m in Sources */,
+				CE8A3C58258A171B00D6C214 /* TWSceneBoxTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1634,6 +1662,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PW2MRU23R;
 				INFOPLIST_FILE = TwitterMessagingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1654,6 +1683,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3PW2MRU23R;
 				INFOPLIST_FILE = TwitterMessagingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
