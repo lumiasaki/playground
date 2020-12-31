@@ -23,7 +23,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (NSInteger)terminationState;
 
 - (void)transitToState:(NSNumber *)state;
-- (void)transitToPreviousState;
 
 @end
 

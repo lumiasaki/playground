@@ -9,26 +9,25 @@
 #import "TWSceneBoxNavigationExtension.h"
 #import "TWSceneBoxNavigationExtensionConstants.h"
 #import "TWSceneBoxEventBus.h"
+#import "TWSceneBox.h"
 
 static const NSInteger TWSceneBoxNavigationExtensionEntryState = NSIntegerMin;
 static const NSInteger TWSceneBoxNavigationExtensionTerminateState = NSIntegerMax;
 
-@interface TWSceneBoxNavigationExtension ()
+@interface TWSceneBoxNavigationExtension () <UINavigationControllerDelegate>
 
 @property (nonatomic, strong) NSMutableArray<NSNumber *> *stateTrace;
+@property (nonatomic, strong, nullable) id<UINavigationControllerDelegate> previousNavigationControllerDelegate;
 
 @end
 
 @implementation TWSceneBoxNavigationExtension
 
 @synthesize eventBus = _eventBus;
-
 @synthesize terminateBox = _terminateBox;
-
 @synthesize getScenes = _getScenes;
 @synthesize markSceneAsActive = _markSceneAsActive;
 @synthesize navigateToScene = _navigateToScene;
-
 @synthesize stateSceneIdentifierTable = _stateSceneIdentifierTable;
 
 #pragma mark - TWSceneBoxExtension
@@ -41,8 +40,11 @@ static const NSInteger TWSceneBoxNavigationExtensionTerminateState = NSIntegerMa
     return [NSSet setWithArray:@[TWSceneBoxNavigationTrackEvent, TWSceneBoxNavigationGetScenesResponseEvent]];
 }
 
-- (void)extensionDidMount {
+- (void)extensionDidMount:(TWSceneBox *)sceneBox {
     assert([self.stateSceneIdentifierTable isKindOfClass:NSDictionary.class]);
+    
+    self.previousNavigationControllerDelegate = sceneBox.configuration.navigationController.delegate;
+    sceneBox.configuration.navigationController.delegate = self;
     
     __weak typeof(self) weakSelf = self;
     [self.eventBus watchEvent:TWSceneBoxNavigationGetScenesRequestEvent next:^(NSDictionary *userInfo) {
@@ -101,40 +103,24 @@ static const NSInteger TWSceneBoxNavigationExtensionTerminateState = NSIntegerMa
     }
 }
 
-- (void)transitToPreviousState {
-    NSAssert([NSThread isMainThread], @"must run on main thread");
-    
-    if ([self.currentState isEqual:@(self.class.entryState)]) {
-        [self transitToState:@(self.class.terminationState)];
-        return;
-    }
-    
-    NSNumber *previousState = self.previousState;
-    if (previousState) {
-        [self transitToState:previousState];
-    }
-}
-
 - (nullable NSNumber *)currentState {
     return self.stateTrace.lastObject;
 }
 
-- (nullable NSNumber *)previousState {
-    if (!self.currentState) {
-        return nil;
+#pragma mark - UINavigationControllerDelegate
+
+- (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController<TWSceneBoxScene> *)viewController animated:(BOOL)animated {
+    if ([viewController conformsToProtocol:@protocol(TWSceneBoxScene)]) {
+        NSUUID *identifier = viewController.sceneIdentifier;
+        if (identifier) {
+            self.navigateToScene(identifier);
+            self.markSceneAsActive(identifier);
+        }
     }
     
-    NSInteger indexOfCurrentState = [self.stateTrace indexOfObject:self.currentState];
-    if (indexOfCurrentState == NSNotFound) {
-        // should never access here
-        return nil;
+    if ([self.previousNavigationControllerDelegate respondsToSelector:@selector(navigationController:didShowViewController:animated:)]) {
+        [self.previousNavigationControllerDelegate navigationController:navigationController didShowViewController:viewController animated:animated];
     }
-    
-    if (indexOfCurrentState - 1 >= 0) {
-        return self.stateTrace[indexOfCurrentState - 1];
-    }
-    
-    return nil;
 }
 
 #pragma mark - getter

@@ -25,7 +25,7 @@
     return [[NSSet alloc] initWithArray:@[TWSceneBoxNavigationGetScenesRequestEvent, TWSceneBoxNavigationGetScenesRequestEvent]];
 }
 
-- (void)extensionDidMount {
+- (void)extensionDidMount:(TWSceneBox *)sceneBox {
     if (self.extensionDidMountBlock) {
         self.extensionDidMountBlock();
     }

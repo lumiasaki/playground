@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface _TWInternalEventDispatcher : NSObject
 
-@property (nonatomic, strong) NSString *dipsatcherId;
+@property (nonatomic, strong) NSString *dispatcherId;
 @property (nonatomic, assign, readonly) NSUInteger currentTaskCount;
 @property (nonatomic, assign, getter=isRunning, readonly) BOOL running;
 

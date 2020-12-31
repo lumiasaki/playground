@@ -17,10 +17,8 @@
 @synthesize getSharedStateBy = _getSharedStateBy;
 @synthesize putSharedState = _putSharedState;
 @synthesize transitToState = _transitToState;
-@synthesize transitToPreviousState = _transitToPreviousState;
 @synthesize sceneIsActiveScene = _sceneIsActiveScene;
 @synthesize sceneIdentifier = _sceneIdentifier;
-@synthesize correctCurrentStateWhenBackGesture = _correctCurrentStateWhenBackGesture;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,10 +27,6 @@
 
 - (void)transitToState:(NSNumber *)state {
     self.transitToState(state);
-}
-
-- (void)transitToPreviousSceneState {
-    self.transitToPreviousState();
 }
 
 - (void)sceneDidLoaded {

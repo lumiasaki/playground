@@ -260,7 +260,7 @@
                     
                     [expectation fulfill];
                     
-                    [self.scene2 transitToPreviousSceneState];
+                    [self.scene2 transitToState:@(TWSceneBoxNavigationExtension.entryState)];
                     
                     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                         XCTAssertTrue(self.unitTestExtension.getScenesBlock().count == 1);

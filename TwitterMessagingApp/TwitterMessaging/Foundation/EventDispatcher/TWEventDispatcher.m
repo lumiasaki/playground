@@ -42,7 +42,7 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        // setup at beginning phrase, maybe we can lazy init them
+        // setup at beginning phase, maybe we can lazy init them
         (void)self.internalDispatchers;
         (void)self.receivers;
     }
@@ -98,7 +98,7 @@
         static const NSUInteger countOfInternalDispatchers = 3;
         for (NSUInteger i = 0; i < countOfInternalDispatchers; i++) {
             _TWInternalEventDispatcher *dispatcher = [[_TWInternalEventDispatcher alloc] init];
-            dispatcher.dipsatcherId = [NSString stringWithFormat:@"dispatcher_%lu", (unsigned long)i];
+            dispatcher.dispatcherId = [NSString stringWithFormat:@"dispatcher_%lu", (unsigned long)i];
             
             [mutableSet addObject:dispatcher];
         }

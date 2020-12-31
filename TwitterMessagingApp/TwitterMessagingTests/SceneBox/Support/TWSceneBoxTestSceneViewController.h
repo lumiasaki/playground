@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy, nullable) void(^sceneWillUnloadBlock)(void);
 
 - (void)transitToState:(NSNumber *)state;
-- (void)transitToPreviousSceneState;
 - (BOOL)isActiveScene;
 
 @end

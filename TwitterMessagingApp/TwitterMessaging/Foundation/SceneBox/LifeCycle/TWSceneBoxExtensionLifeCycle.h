@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@class TWSceneBox;
+
 @protocol TWSceneBoxExtensionLifeCycle <NSObject>
 
 @optional
 
-- (void)extensionDidMount;  // a reasonable time to watch events on the event bus
+- (void)extensionDidMount:(TWSceneBox *)sceneBox;  // a reasonable time to watch events on the event bus
 
 @end
 

@@ -204,8 +204,8 @@
 
 - (void)notifyExtensionsMountEvent {
     for (id<TWSceneBoxExtension> extension in self.extensions.allValues) {
-        if ([extension respondsToSelector:@selector(extensionDidMount)]) {
-            [extension extensionDidMount];
+        if ([extension respondsToSelector:@selector(extensionDidMount:)]) {
+            [extension extensionDidMount:self];
         }
     }
 }
@@ -372,54 +372,12 @@
     };
 }
 
-- (void(^)(void))transitToPreviousStateBlock {
-    __weak typeof(self) weakSelf = self;
-    return ^ {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        NSAssert([NSThread isMainThread], @"must run on main thread");
-        
-        id<TWSceneBoxNavigationExtension> extension = [strongSelf extractNavigationExtension];
-        
-        [extension transitToPreviousState];
-    };
-}
-
 - (BOOL(^)(UIViewController<TWSceneBoxScene> *))sceneIsActiveSceneBlock {
     __weak typeof(self) weakSelf = self;
     return ^BOOL(UIViewController<TWSceneBoxScene> *scene) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         
         return strongSelf.activeScene == scene;
-    };
-}
-
-- (void(^)(UIViewController<TWSceneBoxScene> *))correctCurrentStateWhenBackGestureBlock {
-    __weak typeof(self) weakSelf = self;
-    return ^(UIViewController<TWSceneBoxScene> *scene) {
-        __strong typeof(weakSelf) strongSelf = weakSelf;
-        
-        NSAssert([NSThread isMainThread], @"must run on main thread");
-        NSParameterAssert([scene.sceneIdentifier isKindOfClass:NSUUID.class]);
-        if (![scene.sceneIdentifier isKindOfClass:NSUUID.class]) {
-            NSLog(@"try to correct scene state but id is nil");
-            return;
-        }
-        
-        NSNumber *associatedState;
-        for (NSNumber *state in strongSelf.stateSceneIdentifierTable.allKeys) {
-            NSUUID *identifier = strongSelf.stateSceneIdentifierTable[state];
-            if ([identifier isEqual:scene.sceneIdentifier]) {
-                associatedState = state;
-                break;
-            }
-        }
-        
-        if (![associatedState isKindOfClass:NSNumber.class]) {
-            NSLog(@"try to correct scene state but can not find state with identifier: %@", scene.sceneIdentifier);
-            return;
-        }
-        
-        [[strongSelf extractNavigationExtension] transitToState:associatedState];
     };
 }
 
@@ -440,9 +398,7 @@
     scene.getSharedStateBy = [self getSharedStateBlock];
     scene.putSharedState = [self putSharedStateBlock];
     scene.transitToState = [self transitToStateBlock];
-    scene.transitToPreviousState = [self transitToPreviousStateBlock];
-    scene.sceneIsActiveScene = [self sceneIsActiveSceneBlock];
-    scene.correctCurrentStateWhenBackGesture = [self correctCurrentStateWhenBackGestureBlock];
+    scene.sceneIsActiveScene = [self sceneIsActiveSceneBlock];    
 }
 
 - (id<TWSceneBoxSharedStateExtension>)extractSharedStateExtension {

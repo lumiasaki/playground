@@ -34,12 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 /// Transit to a state, which represent a scene in the TWSceneBox
 @property (nonatomic, copy) void(^transitToState)(NSNumber *state);  // swift之后使用范型实现state类型
 
-/// Transit to previous state, it is useful when you want to go back to previous page, if you don't call this method, the `state` in TWSceneBox will be incorrect
-@property (nonatomic, copy) void(^transitToPreviousState)(void);
-
-/// Very similar to the `transitToPreviousState`, when user navigate the scene back to the previous scene by dragging from the edge, user needs to call this method to keep tracking correct scene state as well
-@property (nonatomic, copy) void(^correctCurrentStateWhenBackGesture)(UIViewController<TWSceneBoxScene> *scene);
-
 /// It indicates if a scene is active scene
 @property (nonatomic, copy) BOOL(^sceneIsActiveScene)(UIViewController<TWSceneBoxScene> *scene);
 

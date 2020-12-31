@@ -32,7 +32,7 @@
 
 #pragma mark - TWSceneBoxExtensionLifeCycle
 
-- (void)extensionDidMount {
+- (void)extensionDidMount:(TWSceneBox *)sceneBox {
     __weak typeof(self) weakSelf = self;
     [self.eventBus watchEvent:TWSceneBoxNavigationTrackEvent next:^(NSDictionary *event) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
