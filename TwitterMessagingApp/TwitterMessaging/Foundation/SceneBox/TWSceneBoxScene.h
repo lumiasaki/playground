@@ -14,6 +14,8 @@
 
 @protocol TWSceneBoxExtension;
 
+#define TWSceneBoxSceneSafeCall(block, __VA_ARGS__) block ? block(__VA_ARGS__) : nil
+
 NS_ASSUME_NONNULL_BEGIN
 
 /// It represent a unit which is managed by TWSceneBox, it always been associated with a view controller. When we accomplish the shift from Objective-C to Swift, the class should be renamed to Scene
