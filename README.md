@@ -10,6 +10,36 @@
 
 Because I want this app could be developed and maintained for a long term, so it's important to start with the architectural design.
 
+### SceneBox
+
+#### Motivation
+
+There is a very common scenario when we build an app, that is, using a series of uninterrupted processes to complete a complete operation, for example, many apps have a user login/registration function, will display a series of login and registration channels on the first page for the user to choose, the second page may ask the user to fill in some information, jump to the third page may require the user to fill in some information again, and the last page will aggregate all the information that has been filled in before, then make a network request to get the final result. If we use the traditional approach, one of the challenges here is that the developer needs to pass the data between pages one by one, which results the data that is clearly not the concern of current page, but is seen in its public interface declaration as requiring an unrelated data to be passed in the previous page. At the same time, all these pages, if without using other decoupling approches, will be tightly coupled together, making it difficult for developers to easily modify the order of the pages in the process and to add new pages to the whole process.
+
+Based on these two pain points, I conceived the framework to enable us to develop application-specific business scenarios that can be more scalable and efficient.
+
+#### Basic Concept
+
+##### SceneBox
+
+A `SceneBox` represents a complete process, imagine it is a box that contains a series of pages inside, and the pages that are contained inside the box can easily use a series of capabilities provided by the box. Initializing a `SceneBox` requires providing a `Configuration`, in which the caller is required to provide the initialization method of the pages and the corresponding unique identifiers of the pages for later decoupling between pages purpose. Besides, `SceneBox` requires caller to provide two blocks to control the behavior when entering and exiting the box. The behavior of entering the box means that when a box is called with the `start()` method, how to display the first page, whether it is pushed or other more custom operations are left to the caller to manage, with strong scalability; the behavior of leaving the box means that when the whole process is completed, the state of the box comes to `terminated`, the caller should provide an implementation to control the behavior at this point.
+
+In general, after initializing a `SceneBox`, it can be held manually by the caller and call the `start()` method of `SceneBox`, but it is more recommended to use the framework's built-in `SceneBoxExecutor` to start the operation, the Executor will automatically manage the life cycle of the `SceneBox`.
+
+##### SceneBoxScene
+
+The `SceneBoxScene` represents a page in the `SceneBox`, which is currently limited in the `UIViewController` class, and the limitation may be removed in the future. The fact that `SceneBoxScene` is a protocol means that using `SceneBox` does not need to change the inheritance of your existing code, making it relatively easy to transform an existing `UIViewController` into a class that can be used in `SceneBox`. `SceneBoxScene` provides a number of capabilities that can be used in `SceneBox`, such as `getSharedState(by:)`, `putSharedState(state:key:)` and so on.
+
+Once a `UIViewController` is marked as conforming to the `SceneBoxScene` protocol, simply follow the Xcode prompts to `@synthesize` the corresponding properties, and then call it via the framework's built-in `SceneBoxSceneSafeCall()` macro.
+
+By calling these `SceneBoxScene` capabilities, you no longer need to pass a piece of data from the first page to the last one, you just need to give the data that will be shared to `SceneBox`, and if the downstream pages need the corresponding value, you just need to get it according to the `key` that has been negotiated. Also, since it is no longer necessary to explicitly push to the next page, but to call the `transit(to:)` method provided by `SceneBoxScene` instead, the strong coupling between these pages is also lifted.
+
+##### Extensions
+
+All the capabilities in `SceneBoxScene` are bound by `SceneBox` while initialization, and `SceneBox` does not actually provide these capabilities directly, `SceneBox` only provides a series of basic interfaces to the outside, and the use of these basic interfaces to form more complex and advanced functions is `Extension`'s task. This is designed very much like Microsoft's `Visual Stuio Code`, or Chrome's `Chrome Extension`. In fact, all the basic and additional capabilities of `SceneBox` are implemented by `Extension`s, and you can even build a complete set of `Redux` or `Data Binding` on top of `SceneBox` if you want.
+
+There is always a need for interaction between `Extension`s, and to reduce coupling between `Extension`s and to emphasize the independence of each one, `Extension`s interact with each other through an internal message bus, where each `Extension` can declare what messages it listens to and what messages it can respond to, without paying attention to where the messages come from or whether there is a recipient for the messages it sends.
+
 ### Network Layer
 First of all, I would like to talk about the network layer. I designed multiple layers of abstraction for the network layer and used the POP approach to make the network layer more flexible. I have constructed a corresponding `Request` object for each Endpoint request, which adheres to the `EndpointRequest` protocol and could be set up easily, whereas `EndpointRequest` is used by `TWEndpointServiceImpl` class, and the `TWEndpointServiceImpl` is an implementation of `TWEndpointService` protocol which performs a real network request internally. `TWEndpointServiceImpl` is used in `TWEndpointRequestOperation`, and the ability of multithreading could be easily used through the NSOperation, which is convenient for requesting network data. The developers actually invokes categories of the `TWEndpointAPIManager` class to request newtork data, and the `TWEndpointAPIManager` conveniently isolating all the endpoint requests. In particular, because I couldn't get valid keys from Twitter, I mocked my requests data in these cases:
 * Followers: TwEndpointAPIManager+FollowerListRequest.m 
